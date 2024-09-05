@@ -1,10 +1,9 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { createHtmlPlugin } from 'vite-plugin-html'
-import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base:'',
+  base:'/Goals-App/',
   plugins: [react(),createHtmlPlugin({minify:true})]
 })
