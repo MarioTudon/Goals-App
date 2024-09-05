@@ -6,7 +6,7 @@ import { resolve } from 'path'
 // https://vitejs.dev/config/
 export default defineConfig({
   root: resolve(__dirname,'./src'),
-  base:'./',
+  base:'',
   plugins: [react(),createHtmlPlugin({minify:true})],
   build: {
     outDir: resolve(__dirname,'./dist'),
