@@ -5,15 +5,7 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  root: resolve(__dirname,'./src'),
+  root: resolve(__dirname,'src'),
   base:'',
-  plugins: [react(),createHtmlPlugin({minify:true})],
-  build: {
-    outDir: resolve(__dirname,'./dist'),
-    assetsDir: './assets',
-    minify: true,
-    rollupOptions: {
-      input: resolve(__dirname,'./index.html')
-    }
-  }
+  plugins: [react(),createHtmlPlugin({minify:true})]
 })
