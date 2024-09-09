@@ -4,13 +4,14 @@ function Header() {
 
     return (
         <>
-            <div>
-                <img src="" alt="icon" />
-                <a href="/">Goals App</a>
+            <div className='bg-black h-xl'>
+                <div>
+                    <a href="/">Goals App</a>
+                </div>
+                <nav>
+                    <a href="/perfil">Perfil</a>
+                </nav>
             </div>
-            <nav>
-                <a href="/perfil">Perfil</a>
-            </nav>
         </>
     )
 }
