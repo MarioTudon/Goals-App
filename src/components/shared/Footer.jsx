@@ -4,7 +4,7 @@ function Footer() {
 
     return (
         <>
-            <footer>
+            <footer className='text-red-500'>
                 By Mario Tudón &copy;2024. All rights reserved.
             </footer>
         </>
