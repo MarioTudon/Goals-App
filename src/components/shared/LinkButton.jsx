@@ -1,9 +1,9 @@
 function LinkButton({ children, text, href, imgSrc, imgAlt }) {
     return (
         <>
-            <a href={href} className='flex pt-4 items-center'>
+            <a href={href} className='flex py-3 items-center hover:bg-gray-200'>
                 <img src={imgSrc} alt={imgAlt} className="w-6 h-6 ml-4 mr-3"/>
-                <span className="align-middle">{text}</span>
+                <span className="align-middle text-gray-700 text-base font-bold">{text}</span>
             </a>
         </>
     );

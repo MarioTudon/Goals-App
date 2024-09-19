@@ -4,11 +4,11 @@ module.exports = {
   theme: {
     extend: {
       height: {
-        sm: '8px',
-        md: '16px',
-        lg: '24px',
-        xl: '48px',
-        main: 'calc(100vh - (theme(height.md) + theme(height.xl)));'
+        sm: '0.5rem',
+        base: '1rem',
+        lg: '1.5rem',
+        xl: '3rem',
+        main: 'calc(100vh - (theme(height.base) + theme(height.xl)));'
       },
     },
   },
