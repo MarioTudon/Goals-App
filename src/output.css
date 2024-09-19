@@ -569,8 +569,25 @@ body {
   position: relative;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
 .mr-2 {
   margin-right: 0.5rem;
+}
+
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
+.mr-3 {
+  margin-right: 0.75rem;
 }
 
 .flex {
@@ -579,10 +596,6 @@ body {
 
 .h-10 {
   height: 2.5rem;
-}
-
-.h-11 {
-  height: 2.75rem;
 }
 
 .h-full {
@@ -601,12 +614,16 @@ body {
   height: 48px;
 }
 
-.w-10 {
-  width: 2.5rem;
+.h-3 {
+  height: 0.75rem;
 }
 
-.w-11 {
-  width: 2.75rem;
+.h-6 {
+  height: 1.5rem;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .w-60 {
@@ -615,6 +632,14 @@ body {
 
 .w-full {
   width: 100%;
+}
+
+.w-6 {
+  width: 1.5rem;
+}
+
+.cursor-vertical-text {
+  cursor: vertical-text;
 }
 
 .flex-col {
@@ -657,8 +682,17 @@ body {
   --tw-gradient-to: #a855f7 var(--tw-gradient-to-position);
 }
 
+.py-4 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
 .pl-4 {
   padding-left: 1rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .pr-2 {
@@ -669,12 +703,20 @@ body {
   padding-right: 1rem;
 }
 
-.text-center {
-  text-align: center;
+.pt-4 {
+  padding-top: 1rem;
+}
+
+.pl-1 {
+  padding-left: 0.25rem;
 }
 
 .text-right {
   text-align: right;
+}
+
+.align-middle {
+  vertical-align: middle;
 }
 
 .text-2xl {
