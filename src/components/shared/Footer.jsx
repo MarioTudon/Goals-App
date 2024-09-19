@@ -1,10 +1,8 @@
-import { useState } from 'react'
-
 function Footer() {
 
     return (
         <>
-            <footer className='text-blue-500'>
+            <footer className='bg-gradient-to-r from-pink-500 to-purple-500 h-md text-xs text-right pr-2 text-white relative'>
                 By Mario Tudón &copy;2024. All rights reserved.
             </footer>
         </>

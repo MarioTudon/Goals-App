@@ -1,3 +1,11 @@
 @tailwind base;
 @tailwind components;
+html {
+    user-select: none;
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+}
 @tailwind utilities;
