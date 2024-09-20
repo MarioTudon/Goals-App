@@ -14,7 +14,7 @@ function Header() {
                 </div>
                 <nav className='flex items-center mr-4'>
                     <a href='/perfil'>
-                        <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-0.5 hover:bg-gray-200 rounded-full' />
+                        <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-0.5 hover:bg-gray-200 rounded-full hover:scale-110 transition duration-200'/>
                     </a>
                 </nav>
             </header>
