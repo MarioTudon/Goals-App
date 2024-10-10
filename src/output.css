@@ -597,6 +597,11 @@ body {
   right: 0.25rem;
 }
 
+.mx-3 {
+  margin-left: 0.75rem;
+  margin-right: 0.75rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -737,6 +742,14 @@ body {
   width: 11rem;
 }
 
+.w-1\/2 {
+  width: 50%;
+}
+
+.w-3\/4 {
+  width: 75%;
+}
+
 .min-w-6 {
   min-width: 1.5rem;
 }
@@ -777,12 +790,24 @@ body {
   align-items: center;
 }
 
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
 .justify-center {
   justify-content: center;
 }
 
 .justify-between {
   justify-content: space-between;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
 }
 
 .overflow-auto {
@@ -871,6 +896,14 @@ body {
   padding-right: 0.5rem;
 }
 
+.pr-10 {
+  padding-right: 2.5rem;
+}
+
+.pr-24 {
+  padding-right: 6rem;
+}
+
 .text-right {
   text-align: right;
 }
@@ -936,6 +969,22 @@ body {
 
 .duration-slow {
   transition-duration: 600ms;
+}
+
+.duration-\[5000\] {
+  transition-duration: 5000;
+}
+
+.duration-\[5000ms\] {
+  transition-duration: 5000ms;
+}
+
+.duration-\[1000ms\] {
+  transition-duration: 1000ms;
+}
+
+.duration-\[2000ms\] {
+  transition-duration: 2000ms;
 }
 
 .hover\:right-1:hover {

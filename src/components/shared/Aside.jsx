@@ -21,7 +21,7 @@ function Aside() {
 
     return (
         <>
-            <aside className={`flex flex-col text-gray-700 bg-gray-200 h-full md:w-60 ${asideWidth} relative transition-all duration-slow`}>
+            <aside className={`flex flex-col justify-start text-gray-700 bg-gray-200 h-full md:w-60 ${asideWidth} relative transition-all duration-slow pr-2`}>
                 <LinkButton href={'#'} text={'Goals List'}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3 lg:group-hover:scale-110">
                         <path d="M6 15.8L7.14286 17L10 14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />
