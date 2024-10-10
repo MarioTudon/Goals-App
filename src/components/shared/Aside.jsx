@@ -4,7 +4,7 @@ import LinkButton from './LinkButton'
 function Aside() {
     const [arrowRotation, setArrowRotation] = useState("rotate-0");
     const [asideWidth, setAsideWidth] = useState("w-0");
-    const [isHided, setIsHided] = useState(true);
+    const [isHided, setIsHided] = useState(false);
 
     function hideElement() {
         if (!isHided) {
@@ -37,7 +37,7 @@ function Aside() {
                         <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" strokeWidth="1.5" strokeLinecap="round" className='stroke-gray-700' />
                     </svg>
                 </LinkButton>
-                <button onClick={hideElement} className='absolute top-1/2 right-0 translate-x-1/2 w-14 h-8 flex items-center bg-gray-200 rounded-full hover:-right-1 transition-all duration-medium py-8 md:hidden'>
+                <button onClick={hideElement} className='absolute top-1/2 right-0 translate-x-1/2 w-14 h-8 flex items-center bg-gray-200 rounded-full transition-all duration-medium py-8 md:hidden'>
                     <svg xmlns="http://www.w3.org/2000/svg" height="48px" viewBox="0 -960 960 960" width="48px" fill="#e8eaed" className={`fill-gray-700 ml-auto w-8 h-8 ${arrowRotation} transition-all duration-medium`}>
                         <path d="M490-480 342-628q-18-18-18-41.5t18-41.5q18-18 41.5-18t41.84 18.34L614-522q8 8.4 13 19.7 5 11.3 5 22.5t-5 22.5q-5 11.3-13 19.3L425.34-249.34Q407-231 384-231.5q-23-.5-41-18.5t-18-41.5q0-23.5 18-41.5l147-147Z" />
                     </svg>
