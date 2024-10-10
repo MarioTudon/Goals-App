@@ -11,6 +11,7 @@
     "tailwind": "npx tailwindcss -i ./src/index.css -o ./src/output.css --watch"
   },
   "dependencies": {
+    "animated-backgrounds": "^1.0.11",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

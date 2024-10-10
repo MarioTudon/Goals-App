@@ -5,12 +5,12 @@ function Header() {
 
     return (
         <>
-            <header className='h-12 flex justify-between shadow bg-white text-gray-700 relative py-2'>
+            <header className='h-12 flex justify-between shadow backdrop-blur-sm text-gray-700 relative py-2'>
                 <div className='flex items-center ml-4'>
                     <a href='/Goals-App' className='mr-2 '>
                         <img src={logoIcon} alt='logo' className='w-10 h-10' />
                     </a>
-                    <p className='text-lg font-bold uppercase'>Goals App</p>
+                    <p className='text-lg font-bold uppercase text-gray-200'>Goals App</p>
                 </div>
                 <nav className='flex items-center mr-4'>
                     <a href='/perfil'>
