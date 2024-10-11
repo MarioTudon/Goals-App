@@ -3,6 +3,10 @@ import accountIcon from '../../assets/account-icon.svg'
 
 function Header() {
 
+    function openLink(){
+        window.open("/Goals-App", "_self")
+    }
+
     return (
         <>
             <header className='h-12 flex justify-between text-gray-700 relative py-2 bg-gray-200'>
@@ -13,9 +17,9 @@ function Header() {
                     <p className='text-lg font-bold uppercase text-gray-700'>Goals App</p>
                 </div>
                 <nav className='flex items-center mr-4'>
-                    <a href='/perfil'>
-                        <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-1 lg:hover:bg-gray-300 rounded-full hover:scale-125 transition duration-medium'/>
-                    </a>
+                    <button onClick={openLink}>
+                        <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-1 lg:hover:bg-gray-300 rounded-full hover:scale-125 transition duration-medium' />
+                    </button>
                 </nav>
             </header>
         </>

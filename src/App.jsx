@@ -1,16 +1,18 @@
 import Header from './components/shared/Header'
 import Main from './components/shared/Main'
 import Footer from './components/shared/Footer'
-import Aside from './components/shared/Aside'
+import Menu from './components/shared/Menu'
 import { useState } from 'react'
+import { AnimatedBackground } from 'animated-backgrounds'
 
 function App() {
   return (
     <>
+      <AnimatedBackground animationName="floatingBubbles"/>
       <div className='flex flex-col h-screen'>
         <Header />
         <div className='flex h-full'>
-          <Aside />
+          <Menu />
           <Main />
         </div>
         <Footer />

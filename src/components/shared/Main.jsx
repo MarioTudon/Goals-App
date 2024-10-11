@@ -1,11 +1,9 @@
-function Main({ children }) {
+function Main({ children, hideMenu }) {
     return (
         <>
-            <div className='flex items-center h-full bg-gray-100 w-full'>
-                <main className='w-full h-full overflow-scroll'>
-                    {children}
-                </main>
-            </div>
+            <main className='w-full h-full overflow-scroll  animate-gradient'>
+                {children}
+            </main>
         </>
     )
 }
