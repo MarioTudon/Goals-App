@@ -669,6 +669,10 @@ body {
   width: 100%;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .min-w-6 {
   min-width: 1.5rem;
 }
@@ -743,12 +747,25 @@ body {
   background-color: rgb(55 65 81 / var(--tw-bg-opacity));
 }
 
+.bg-gray-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(156 163 175 / var(--tw-bg-opacity));
+}
+
 .fill-gray-200 {
   fill: #e5e7eb;
 }
 
+.fill-gray-700 {
+  fill: #374151;
+}
+
 .stroke-gray-200 {
   stroke: #e5e7eb;
+}
+
+.stroke-gray-700 {
+  stroke: #374151;
 }
 
 .p-1 {
@@ -887,6 +904,10 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .lg\:relative {
+    position: relative;
+  }
+
   .lg\:hover\:bg-gray-300:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(209 213 219 / var(--tw-bg-opacity));
