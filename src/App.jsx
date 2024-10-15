@@ -28,12 +28,11 @@ function App() {
 
   return (
     <>
-      <div className='-z-50 bg-gray-100 w-full h-screen fixed'></div>
-      <div className='flex flex-col h-screen'>
+      <div className='flex flex-col h-screen' >
         <Header />
         <div className='flex h-full relative'>
           <Menu hideMenu={hideMenu} arrowDirection={arrowDirection} arrowRotation={arrowRotation} asideWidth={asideWidth} />
-          <Main hideMenu={hideMenu} mainRef={mainRef}/>
+          <Main hideMenu={hideMenu} mainRef={mainRef} />
         </div>
         <Footer />
       </div>
