@@ -23,7 +23,7 @@ function Goal({frequency, frequencyUnit, current, goal}) {
 
     return (
         <>
-            <div className="flex text-nowrap shrink-0 grow-0 justify-between items-center w-96 h-16 bg-gray-200 px-2 my-8 rounded-xl shadow-md shadow-gray-400">
+            <div className="flex text-nowrap shrink-0 grow-0 justify-between items-center w-11/12 h-16 bg-gray-200 px-2 my-8 rounded-xl shadow-md shadow-gray-400">
                 <div className="flex">
                     <div className="w-12 h-12 flex justify-center items-center bg-gray-50 rounded-full shadow-sm shadow-gray-400">🏆</div>
                 </div>
