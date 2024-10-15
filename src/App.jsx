@@ -3,6 +3,7 @@ import Main from './components/shared/Main'
 import Footer from './components/shared/Footer'
 import Menu from './components/shared/Menu'
 import { useState } from 'react'
+import Goal from './components/list/Goal'
 
 function App() {
   const [arrowRotation, setArrowRotation] = useState("rotate-0");
@@ -10,17 +11,17 @@ function App() {
   const [isHided, setIsHided] = useState(false);
 
   function hideMenu(e) {
-    if (!isHided && e.target.nodeName !== 'MAIN') {
-        setArrowRotation("rotate-180");
-        setAsideWidth("w-60");
-        setIsHided(true);
+    if (!isHided && e.target.name === 'Hola') {
+      setArrowRotation("rotate-180");
+      setAsideWidth("w-60");
+      setIsHided(true);
     }
     else {
-        setArrowRotation("rotate-0");
-        setAsideWidth("w-0");
-        setIsHided(false);
+      setArrowRotation("rotate-0");
+      setAsideWidth("w-0");
+      setIsHided(false);
     }
-}
+  }
 
   return (
     <>
@@ -28,8 +29,10 @@ function App() {
       <div className='flex flex-col h-screen'>
         <Header />
         <div className='flex h-full'>
-          <Menu hideMenu={hideMenu} arrowRotation={arrowRotation} asideWidth={asideWidth}/>
-          <Main hideMenu={hideMenu} />
+          <Menu hideMenu={hideMenu} arrowRotation={arrowRotation} asideWidth={asideWidth} />
+          <Main hideMenu={hideMenu} >
+            <Goal frequency={1} frequencyUnit={'month'} current={0} goal={5}/>
+          </Main>
         </div>
         <Footer />
       </div>
