@@ -35,7 +35,7 @@ function Goal({frequency, frequencyUnit, current, goal}) {
                     <div className="flex flex-col items-center mr-2">
                         <div className="text-sm font-semibold">{countCurrent} of {countGoal}</div>
                         <div className="w-full h-2 rounded-full bg-gray-300 px-9 relative">
-                            <div className={"h-2 rounded-full bg-emerald-400 absolute left-0"} style={{'width':`${percentage}%`}}></div>
+                            <div className={"h-2 rounded-full bg-gradient-to-r from-emerald-300 to-cyan-500 absolute left-0"} style={{'width':`${percentage}%`}}></div>
                         </div>
                     </div>
                     <Button label={"Complete"} color={'bg-gray-50'} onClick={completeGoal}/>
