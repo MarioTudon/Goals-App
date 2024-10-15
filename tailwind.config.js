@@ -12,22 +12,22 @@ module.exports = {
         'gray-200-glass': 'rgba(229, 231, 235, 0.20)'
       },
       animation: {
-        right: 'right 1.5s ease infinite',
-        left: 'left 1.5s ease infinite'
+        rightBounce: 'rightBounce 1.5s ease infinite',
+        leftBounce: 'leftBounce 1.5s ease infinite'
       },
       keyframes: {
-        right: {
-          '0%': { right: '0' },
-          '20%': { right: '5%' },
-          '40%': { right: '0' },
-          '60%': { right: '5%' },
-          '100%': { right: '0' },
-        },
-        left: {
+        rightBounce: {
           '0%': { left: '0' },
-          '20%': { left: '-5%' },
-          '40%': { left: '0' },
-          '60%': { left: '-5%' },
+          '15%': { left: '7%' },
+          '30%': { left: '0' },
+          '45%': { left: '7%' },
+          '100%': { left: '0' },
+        },
+        leftBounce: {
+          '0%': { left: '0' },
+          '15%': { left: '-7%' },
+          '30%': { left: '0' },
+          '45%': { left: '-7%' },
           '100%': { left: '0' },
         }
       }

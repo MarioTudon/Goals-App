@@ -6,7 +6,7 @@ import { useRef, useState } from 'react'
 
 function App() {
   const [arrowRotation, setArrowRotation] = useState("rotate-0");
-  const [arrowDirection, setArrowDirection] = useState("right");
+  const [arrowDirection, setArrowDirection] = useState("rightBounce");
   const [asideWidth, setAsideWidth] = useState("w-0");
   const [isHided, setIsHided] = useState(false);
   const mainRef = useRef(null);
@@ -14,13 +14,13 @@ function App() {
   function hideMenu(e) {
     if (!isHided && e.target !== mainRef.current) {
       setArrowRotation("rotate-180");
-      setArrowDirection("left");
+      setArrowDirection("leftBounce");
       setAsideWidth("w-40");
       setIsHided(true);
     }
     else {
       setArrowRotation("rotate-0");
-      setArrowDirection("left");
+      setArrowDirection("rightBounce");
       setAsideWidth("w-0");
       setIsHided(false);
     }
