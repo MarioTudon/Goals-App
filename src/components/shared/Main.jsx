@@ -1,11 +1,31 @@
+import { useEffect } from 'react';
 import Goal from '../list/Goal'
 
-function Main({ hideMenu, mainRef }) {
+function Main() {
+    const goals = [
+        { goal: "Run 30 minutes", icon: "🏆", frequency: 4, frequencyUnit: "week", initialCount: 0, initialTarget: 4, key: 0 },
+        { goal: "Read a book", icon: "📚", frequency: 1, frequencyUnit: "month", initialCount: 0, initialTarget: 12, key: 1 },
+        { goal: "Practice programming", icon: "👨🏽‍💻", frequency: 5, frequencyUnit: "week", initialCount: 0, initialTarget: 5, key: 2 }
+    ];
+
+    useEffect(() => {
+        const date = new Date();
+        const hour = date.toTimeString();
+        console.log(hour);
+    }, []);
+
     return (
         <>
-            <main className='flex flex-col items-center justify-start w-full h-full overflow-scroll animate-gradient bg-gray-100 py-2 relative z-0' onClick={hideMenu} ref={mainRef}>
-                <Goal goal={"Run 30 minutes"} icon={"🏆"} frequency={4} frequencyUnit={'week'} current={0} target={4} />
-                <Goal goal={"Read a book"} icon={"📚"} frequency={1} frequencyUnit={'month'} current={0} target={12} />
+            <main className='w-full py-2'>
+                <ul className='w-full h-full flex flex-col'>
+                    {
+                        goals.map(goal =>
+                            <li key={goal.key} className='w-full my-2 flex justify-center'>
+                                <Goal goal={goal.goal} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={goal.initialCount} initialTarget={goal.initialTarget} />
+                            </li>
+                        )
+                    }
+                </ul>
             </main>
         </>
     )
