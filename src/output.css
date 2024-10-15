@@ -737,13 +737,13 @@ body {
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-@keyframes beat {
+@keyframes left {
   0% {
     left: 0;
   }
 
   20% {
-    left: 5%;
+    left: -5%;
   }
 
   40% {
@@ -751,7 +751,7 @@ body {
   }
 
   60% {
-    left: 5%;
+    left: -5%;
   }
 
   100% {
@@ -759,8 +759,8 @@ body {
   }
 }
 
-.animate-beat {
-  animation: beat 1.5s ease infinite;
+.animate-left {
+  animation: left 1.5s ease infinite;
 }
 
 .flex-col {

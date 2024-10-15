@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import NavButton from './NavButton'
 
-function Menu({ hideMenu, arrowRotation, asideWidth, menuRef }) {
+function Menu({ hideMenu, arrowRotation, arrowDirection, asideWidth, menuRef }) {
 
     return (
         <>
@@ -22,7 +22,7 @@ function Menu({ hideMenu, arrowRotation, asideWidth, menuRef }) {
                     </svg>
                 </NavButton>
                 <button onClick={hideMenu} className='absolute top-1/2 right-0 bg-gray-200 translate-x-full w-8 h-16 flex items-center bg-gray rounded-r-full transition-all duration-medium md:hidden' >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed" className={`fill-gray-700 ml-auto w-8 h-8 ${arrowRotation} transition-all duration-medium animate-beat relative`} >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#e8eaed" className={`fill-gray-700 ml-auto w-8 h-8 ${arrowRotation} transition-all duration-medium animate-${arrowDirection} relative`} >
                         <path d="M490-480 342-628q-18-18-18-41.5t18-41.5q18-18 41.5-18t41.84 18.34L614-522q8 8.4 13 19.7 5 11.3 5 22.5t-5 22.5q-5 11.3-13 19.3L425.34-249.34Q407-231 384-231.5q-23-.5-41-18.5t-18-41.5q0-23.5 18-41.5l147-147Z" />
                     </svg>
                 </button>
