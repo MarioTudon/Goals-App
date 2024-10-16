@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import Goal from '../list/Goal'
+import GoalCard from '../list/GoalCard'
 
 function Main() {
     const goals = [
@@ -9,9 +9,9 @@ function Main() {
     ];
 
     useEffect(() => {
-        const date = new Date();
-        const hour = date.toTimeString();
-        console.log(hour);
+        console.log(new Date().toLocaleTimeString('es-ES', {
+            hour12: false,
+          }));
     }, []);
 
     return (
@@ -21,7 +21,7 @@ function Main() {
                     {
                         goals.map(goal =>
                             <li key={goal.key} className='w-full my-2 flex justify-center'>
-                                <Goal goal={goal.goal} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={goal.initialCount} initialTarget={goal.initialTarget} />
+                                <GoalCard goal={goal.goal} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={goal.initialCount} initialTarget={goal.initialTarget} />
                             </li>
                         )
                     }

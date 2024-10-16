@@ -1,4 +1,4 @@
-function LinkButton({ children,text, href, imgSrc, imgAlt }) {
+function MenuButton({ children,text, href, imgSrc, imgAlt }) {
 
     function openLink(){
         window.open("/Goals-App", "_self")
@@ -13,4 +13,4 @@ function LinkButton({ children,text, href, imgSrc, imgAlt }) {
     );
 }
 
-export default LinkButton;
+export default MenuButton;

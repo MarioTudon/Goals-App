@@ -1,7 +1,7 @@
-import Header from './components/shared/Header'
-import Main from './components/shared/Main'
-import Footer from './components/shared/Footer'
-import Menu from './components/shared/Menu'
+import Header from './components/layout/Header'
+import Main from './components/layout/Main'
+import Footer from './components/layout/Footer'
+import SideMenu from './components/layout/SideMenu'
 import { useRef, useState } from 'react'
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
       <div className='flex flex-col h-screen overflow-hidden' >
         <Header />
         <div className='flex h-full relative'>
-          <Menu />
+          <SideMenu />
           <Main />
         </div>
         <Footer />
