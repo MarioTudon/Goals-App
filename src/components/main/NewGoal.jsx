@@ -1,6 +1,6 @@
-import GoalCard from "../main/GoalCard";
+import GoalCard from "../goals-list/GoalCard";
 
-function NewGoal({ display }) {
+function NewGoal() {
     const frequencyUnits = [
         { value: "day", content: "day", key: 0 },
         { value: "week", content: "week", key: 1 },
@@ -12,7 +12,7 @@ function NewGoal({ display }) {
         "😀", "😃", "😄"
     ]
 
-    return display && (
+    return (
         <>
             <form action="">
                 <label>

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import SideMenuButton from '../side-menu/SideMenuButton'
 
-function SideMenu({ sendDataToApp }) {
+function SideMenu({ sendDataToMain }) {
     const [arrowRotation, setArrowRotation] = useState("rotate-0");
     const [arrowDirection, setArrowDirection] = useState("rightBounce");
     const [asideWidth, setAsideWidth] = useState("w-0");
@@ -10,45 +10,31 @@ function SideMenu({ sendDataToApp }) {
     const screenChild = useRef(null);
 
     function hideMenu(e) {
-        if(e){
-            if (isHided && e.target !== screen.current && e.target !== screenChild.current) {
-                setArrowRotation("rotate-180");
-                setArrowDirection("leftBounce");
-                setAsideWidth("w-40");
-                setIsHided(false);
-            }
-            else {
-                setArrowRotation("rotate-0");
-                setArrowDirection("rightBounce");
-                setAsideWidth("w-0");
-                setIsHided(true);
-            }
+        const condition = e ? isHided && e.target !== screen.current && e.target !== screenChild.current : isHided;
+        if (condition) {
+            setArrowRotation("rotate-180");
+            setArrowDirection("leftBounce");
+            setAsideWidth("w-40");
+            setIsHided(false);
         }
         else {
-            if (isHided) {
-                setArrowRotation("rotate-180");
-                setArrowDirection("leftBounce");
-                setAsideWidth("w-40");
-                setIsHided(false);
-            }
-            else {
-                setArrowRotation("rotate-0");
-                setArrowDirection("rightBounce");
-                setAsideWidth("w-0");
-                setIsHided(true);
-            }
+            setArrowRotation("rotate-0");
+            setArrowDirection("rightBounce");
+            setAsideWidth("w-0");
+            setIsHided(true);
         }
+
     }
 
-    function handleDataFromSideMenuButton(id){
-        sendDataToApp(id);
+    function handleDataFromSideMenuButton(id) {
+        sendDataToMain(id);
         hideMenu();
     }
 
     return (
         <>
             <aside className={`flex flex-col justify-start text-gray-700 bg-gray-200 h-full lg:w-60 ${asideWidth} transition-all duration-slow shadow-md shadow-gray-400 absolute z-10 md:relative`}>
-                <SideMenuButton text={'Goals List'} sendDataToSideMenu={handleDataFromSideMenuButton} id={"goalsList"}>
+                <SideMenuButton text={'Goals List'} sendDataToSideMenu={handleDataFromSideMenuButton} sectionID={"goalsList"}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3 lg:group-hover:scale-110">
                         <path d="M6 15.8L7.14286 17L10 14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />
                         <path d="M6 8.8L7.14286 10L10 7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />
@@ -57,7 +43,7 @@ function SideMenu({ sendDataToApp }) {
                         <path d="M22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C21.5093 4.43821 21.8356 5.80655 21.9449 8" strokeWidth="1.5" strokeLinecap="round" className='stroke-gray-700' />
                     </svg>
                 </SideMenuButton>
-                <SideMenuButton text={'New Goal'} sendDataToSideMenu={handleDataFromSideMenuButton} id={"newGoal"}>
+                <SideMenuButton text={'New Goal'} sendDataToSideMenu={handleDataFromSideMenuButton} sectionID={"newGoal"}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3 lg:group-hover:scale-110">
                         <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" strokeWidth="1.5" strokeLinecap="round" className='stroke-gray-700' />
                         <path d="M7 3.33782C8.47087 2.48697 10.1786 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 10.1786 2.48697 8.47087 3.33782 7" strokeWidth="1.5" strokeLinecap="round" className='stroke-gray-700' />

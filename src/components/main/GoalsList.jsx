@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import GoalCard from '../main/GoalCard'
+import GoalCard from '../goals-list/GoalCard'
 
-function GoalsList({ display }) {
+function GoalsList() {
     const goals = [
         { goal: "Running 30 minutes", icon: "🏆", frequency: 4, frequencyUnit: "week", initialCount: 0, initialTarget: 4, key: 0 },
         { goal: "Read a book", icon: "📚", frequency: 1, frequencyUnit: "month", initialCount: 0, initialTarget: 12, key: 1 },
@@ -14,7 +14,7 @@ function GoalsList({ display }) {
         }));*/
     }, []);
 
-    return display && (
+    return (
         <>
             <div className='w-full py-2'>
                 <ul className='w-full h-full flex flex-col'>

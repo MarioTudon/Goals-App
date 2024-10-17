@@ -1,7 +1,7 @@
-function SideMenuButton({ children, text, id, sendDataToSideMenu }) {
+function SideMenuButton({ children, text, sectionID, sendDataToSideMenu }) {
 
     function handleClick() {
-        sendDataToSideMenu(id);
+        sendDataToSideMenu(sectionID);
     }
 
     return (
