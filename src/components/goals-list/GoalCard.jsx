@@ -27,11 +27,11 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, initialCount, initialT
 
     return (
         <>
-            <div className="flex justify-between items-center w-11/12 h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400" onClick={handleClick}>
+            <div className="flex justify-between items-center w-full h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400" onClick={handleClick}>
                 <div className="flex">
                     <div className="w-12 h-12 flex justify-center items-center bg-gray-50 rounded-full shadow-sm shadow-gray-400">{icon}</div>
                 </div>
-                <div className="flex flex-col items-center text-sm font-semibold text-center w-28">
+                <div className="flex flex-col items-center text-sm font-semibold text-center w-28 overflow-hidden mx-2">
                     <p className="font-bold">{goal}</p>
                     <p>{frequency}<sub>/{frequencyUnit}</sub></p>
                 </div>

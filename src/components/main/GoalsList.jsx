@@ -16,7 +16,7 @@ function GoalsList() {
 
     return (
         <>
-            <div className='w-full py-2'>
+            <div className='w-5/6 py-2 mx-auto'>
                 <ul className='w-full h-full flex flex-col'>
                     {
                         goals.map(goal =>

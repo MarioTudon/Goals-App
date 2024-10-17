@@ -607,6 +607,16 @@ body {
   margin-bottom: 0.5rem;
 }
 
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.mx-2 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .ml-4 {
   margin-left: 1rem;
 }
@@ -691,24 +701,12 @@ body {
   min-height: 1.5rem;
 }
 
-.min-h-4 {
-  min-height: 1rem;
-}
-
-.min-h-5 {
-  min-height: 1.25rem;
-}
-
 .w-0 {
   width: 0px;
 }
 
 .w-10 {
   width: 2.5rem;
-}
-
-.w-11\/12 {
-  width: 91.666667%;
 }
 
 .w-12 {
@@ -727,12 +725,12 @@ body {
   width: 9rem;
 }
 
-.w-40 {
-  width: 10rem;
+.w-4 {
+  width: 1rem;
 }
 
-.w-5 {
-  width: 1.25rem;
+.w-40 {
+  width: 10rem;
 }
 
 .w-5\/6 {
@@ -756,8 +754,12 @@ body {
   width: 100%;
 }
 
-.w-4 {
-  width: 1rem;
+.w-3\/4 {
+  width: 75%;
+}
+
+.w-24 {
+  width: 6rem;
 }
 
 .min-w-16 {
@@ -766,14 +768,6 @@ body {
 
 .min-w-6 {
   min-width: 1.5rem;
-}
-
-.min-w-4 {
-  min-width: 1rem;
-}
-
-.min-w-5 {
-  min-width: 1.25rem;
 }
 
 .translate-x-full {
@@ -789,58 +783,6 @@ body {
 .rotate-180 {
   --tw-rotate: 180deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-@keyframes leftBounce {
-  0% {
-    left: 0;
-  }
-
-  15% {
-    left: -10%;
-  }
-
-  30% {
-    left: 0;
-  }
-
-  45% {
-    left: -10%;
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-.animate-leftBounce {
-  animation: leftBounce 1.5s ease infinite;
-}
-
-@keyframes rightBounce {
-  0% {
-    left: 0;
-  }
-
-  15% {
-    left: 10%;
-  }
-
-  30% {
-    left: 0;
-  }
-
-  45% {
-    left: 10%;
-  }
-
-  100% {
-    left: 0;
-  }
-}
-
-.animate-rightBounce {
-  animation: rightBounce 1.5s ease infinite;
 }
 
 .flex-col {
@@ -875,8 +817,20 @@ body {
   overflow: hidden;
 }
 
+.text-wrap {
+  text-wrap: wrap;
+}
+
 .text-nowrap {
   text-wrap: nowrap;
+}
+
+.break-words {
+  overflow-wrap: break-word;
+}
+
+.break-all {
+  word-break: break-all;
 }
 
 .rounded-full {
@@ -892,19 +846,14 @@ body {
   border-bottom-left-radius: 0.75rem;
 }
 
-.rounded-r-xl {
-  border-top-right-radius: 0.75rem;
-  border-bottom-right-radius: 0.75rem;
+.rounded-r-full {
+  border-top-right-radius: 9999px;
+  border-bottom-right-radius: 9999px;
 }
 
 .rounded-t-xl {
   border-top-left-radius: 0.75rem;
   border-top-right-radius: 0.75rem;
-}
-
-.rounded-r-full {
-  border-top-right-radius: 9999px;
-  border-bottom-right-radius: 9999px;
 }
 
 .bg-gray-100 {
