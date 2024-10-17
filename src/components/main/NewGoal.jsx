@@ -17,16 +17,16 @@ function NewGoal() {
         <>
             <form action="" className="w-5/6 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-6 shadow-md shadow-gray-400">
                 <label className="flex flex-col">
-                    <div className="font-bold my-2">  Describe your goal</div>
+                    <div className="font-bold my-2">Describe your goal</div>
 
-                    <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full" />
+                    <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
                 </label>
                 <label className="flex flex-col">
-                    <div className="font-bold my-2"> Enter how often you want to met the goal</div>
+                    <div className="font-bold my-2">How often do you want to meet the goal</div>
 
                     <div className="flex">
-                        <input type="number" name="frequency" id="frequency" min={0} max={99} placeholder="E.g. 5/week" className="w-32 mr-5 py-2 px-3 rounded-full" />
-                        <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full">
+                        <input type="number" name="frequency" id="frequency" min={0} max={99} placeholder="E.g. 5/week" className="w-32 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
+                        <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400">
                             {
                                 frequencyUnits.map(frequencyUnit =>
                                     <option key={frequencyUnit.key} value={frequencyUnit.value}>{frequencyUnit.content}</option>
@@ -36,13 +36,17 @@ function NewGoal() {
                     </div>
                 </label>
                 <label className="flex flex-col mr-10">
-                    <div className="font-bold my-2"> Enter your target goal</div>
-                    <input type="number" name="" id="" min={0} max={99} placeholder="E.g. 20" className="w-32 py-2 px-3 rounded-full" />
+                    <div className="font-bold my-2">Enter your target goal</div>
+                    <input type="number" name="" id="" min={0} max={99} className="w-32 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
+                </label>
+                <label className="flex flex-col mr-10">
+                    <div className="font-bold my-2">Enter the deadline for your goal</div>
+                    <input type="date" name="" id="" className="w-36 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400"/>
                 </label>
                 <label className="flex flex-col">
                     <div className="font-bold my-2"> Select an icon</div>
 
-                    <select name="" id="" className="w-fit py-2 px-3 rounded-full">
+                    <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400">
                         {
                             icons.map(icon =>
                                 <option value={icon} key={icon}>{icon}</option>
