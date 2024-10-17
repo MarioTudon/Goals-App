@@ -17,7 +17,7 @@ function Main() {
 
     return (
         <>
-            <main className='flex h-full relative'>
+            <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100'>
                 <SideMenu sendDataToMain={handleDataFromSideMenu} />
                 {sections[section]}
             </main>

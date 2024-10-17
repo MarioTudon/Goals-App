@@ -18,7 +18,7 @@ function Header() {
                 </div>
                 <nav className='flex items-center mr-4'>
                     <button onClick={openLink}>
-                        <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-1 lg:hover:bg-gray-300 rounded-full hover:scale-125 transition duration-medium' />
+                        <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-1 rounded-full hover:scale-125 transition duration-medium' />
                     </button>
                 </nav>
             </header>
