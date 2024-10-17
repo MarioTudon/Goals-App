@@ -1,22 +1,22 @@
 import { useEffect } from 'react';
-import GoalCard from '../list/GoalCard'
+import GoalCard from '../main/GoalCard'
 
-function Main() {
+function GoalsList({ display }) {
     const goals = [
-        { goal: "Run 30 minutes", icon: "🏆", frequency: 4, frequencyUnit: "week", initialCount: 0, initialTarget: 4, key: 0 },
+        { goal: "Running 30 minutes", icon: "🏆", frequency: 4, frequencyUnit: "week", initialCount: 0, initialTarget: 4, key: 0 },
         { goal: "Read a book", icon: "📚", frequency: 1, frequencyUnit: "month", initialCount: 0, initialTarget: 12, key: 1 },
         { goal: "Practice programming", icon: "👨🏽‍💻", frequency: 5, frequencyUnit: "week", initialCount: 0, initialTarget: 5, key: 2 }
     ];
 
     useEffect(() => {
-        console.log(new Date().toLocaleTimeString('es-ES', {
+        /*console.log(new Date().toLocaleTimeString('es-ES', {
             hour12: false,
-          }));
+        }));*/
     }, []);
 
-    return (
+    return display && (
         <>
-            <main className='w-full py-2'>
+            <div className='w-full py-2'>
                 <ul className='w-full h-full flex flex-col'>
                     {
                         goals.map(goal =>
@@ -26,9 +26,9 @@ function Main() {
                         )
                     }
                 </ul>
-            </main>
+            </div>
         </>
     )
 }
 
-export default Main
+export default GoalsList
