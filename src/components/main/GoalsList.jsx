@@ -16,8 +16,8 @@ function GoalsList() {
 
     return (
         <>
-            <div className='w-5/6 py-2 mx-auto'>
-                <ul className='w-full h-full flex flex-col'>
+            <div className='w-5/6 mx-auto'>
+                <ul className='w-full h-full flex flex-col mt-2'>
                     {
                         goals.map(goal =>
                             <li key={goal.key} className='w-full my-2 flex justify-center'>

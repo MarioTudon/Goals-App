@@ -15,7 +15,7 @@ function NewGoal() {
 
     return (
         <>
-            <form action="" className="w-5/6 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-6 shadow-md shadow-gray-400">
+            <form action="" className="w-5/6 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-4 shadow-md shadow-gray-400">
                 <label className="flex flex-col">
                     <div className="font-bold my-2">Describe your goal</div>
 
@@ -25,7 +25,7 @@ function NewGoal() {
                     <div className="font-bold my-2">How often do you want to meet the goal</div>
 
                     <div className="flex">
-                        <input type="number" name="frequency" id="frequency" min={0} max={99} placeholder="E.g. 5/week" className="w-32 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
+                        <input type="number" name="frequency" id="frequency" min={0} max={99} className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
                         <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400">
                             {
                                 frequencyUnits.map(frequencyUnit =>
@@ -37,14 +37,14 @@ function NewGoal() {
                 </label>
                 <label className="flex flex-col mr-10">
                     <div className="font-bold my-2">Enter your target goal</div>
-                    <input type="number" name="" id="" min={0} max={99} className="w-32 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
+                    <input type="number" name="" id="" min={0} max={99} className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" />
                 </label>
                 <label className="flex flex-col mr-10">
                     <div className="font-bold my-2">Enter the deadline for your goal</div>
                     <input type="date" name="" id="" className="w-36 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400"/>
                 </label>
                 <label className="flex flex-col">
-                    <div className="font-bold my-2"> Select an icon</div>
+                    <div className="font-bold"> Select an icon</div>
 
                     <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400">
                         {
