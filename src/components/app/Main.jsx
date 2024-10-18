@@ -3,13 +3,19 @@ import GoalsList from '../main/GoalsList'
 import NewGoal from '../main/NewGoal'
 import SideMenu from '../main/SideMenu'
 
-const sections = {
-    goalsList: <GoalsList />,
-    newGoal: <NewGoal />
-}
-
 function Main() {
-    const [section, setSection] = useState('goalsList')
+    const [section, setSection] = useState('goalsList');
+    const [dataFromNewGoal, setDataFromNewGoaltAa] = useState({});
+
+    const sections = {
+        goalsList: <GoalsList dataFromMain={dataFromNewGoal} />,
+        newGoal: <NewGoal sendDataToParent={handleDataFromNewGoal} />
+    }
+
+    function handleDataFromNewGoal(data) {
+        setDataFromNewGoaltAa(data);
+        setSection('goalsList');
+    }
 
     function handleDataFromSideMenu(sectionID) {
         setSection(sectionID);

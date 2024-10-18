@@ -1,18 +1,31 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import GoalCard from '../goals-list/GoalCard'
 
-function GoalsList() {
-    const goals = [
-        { goal: "Running 30 minutes", icon: "🏆", frequency: 4, frequencyUnit: "week", initialCount: 0, initialTarget: 4, key: 0 },
-        { goal: "Read a book", icon: "📚", frequency: 1, frequencyUnit: "month", initialCount: 0, initialTarget: 12, key: 1 },
-        { goal: "Practice programming", icon: "👨🏽‍💻", frequency: 5, frequencyUnit: "week", initialCount: 0, initialTarget: 5, key: 2 }
-    ];
-
+function GoalsList({ dataFromMain }) {
+    const [goals, setGoals] = useState([])
     useEffect(() => {
         /*console.log(new Date().toLocaleTimeString('es-ES', {
             hour12: false,
         }));*/
     }, []);
+
+    useEffect(() => {
+        if (dataFromMain) {
+            const newGoal = {
+                details: dataFromMain.detailsForm,
+                frequency: dataFromMain.frequencyForm,
+                frequencyUnit: dataFromMain.frequencyUnitsForm,
+                target: dataFromMain.targetForm,
+                deadline: dataFromMain.deadlineForm,
+                icon: dataFromMain.iconForm
+            };
+    
+            // Verificar que los datos necesarios no estén vacíos
+            if (newGoal.details && newGoal.frequency && newGoal.deadline) {
+                setGoals(prevGoals => [newGoal, ...prevGoals]);
+            }
+        }
+    }, [dataFromMain]);
 
     return (
         <>
@@ -21,7 +34,7 @@ function GoalsList() {
                     {
                         goals.map(goal =>
                             <li key={goal.key} className='w-full my-2 flex justify-center'>
-                                <GoalCard goal={goal.goal} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={goal.initialCount} initialTarget={goal.initialTarget} />
+                                <GoalCard goal={goal.details} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={0} initialTarget={goal.target} />
                             </li>
                         )
                     }
