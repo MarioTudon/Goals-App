@@ -818,6 +818,10 @@ body {
   text-wrap: nowrap;
 }
 
+.break-all {
+  word-break: break-all;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -897,14 +901,6 @@ body {
 
 .to-gray-100 {
   --tw-gradient-to: #f3f4f6 var(--tw-gradient-to-position);
-}
-
-.bg-right {
-  background-position: right;
-}
-
-.bg-repeat {
-  background-repeat: repeat;
 }
 
 .fill-gray-700 {
