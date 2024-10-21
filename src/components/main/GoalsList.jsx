@@ -4,7 +4,7 @@ import GoalCard from '../goals-list/GoalCard'
 function GoalsList({ goals=[] }) {
     return (
         <>
-            <div className='w-5/6 mx-auto'>
+            <div className='w-11/12 mx-auto'>
                 <ul className='w-full h-full flex flex-col mt-2'>
                     {
                         goals.map(goal =>
