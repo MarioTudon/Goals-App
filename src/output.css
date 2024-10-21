@@ -597,9 +597,9 @@ body {
   z-index: 20;
 }
 
-.mx-2 {
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+.mx-1 {
+  margin-left: 0.25rem;
+  margin-right: 0.25rem;
 }
 
 .mx-auto {
@@ -716,8 +716,8 @@ body {
   width: 4rem;
 }
 
-.w-28 {
-  width: 7rem;
+.w-32 {
+  width: 8rem;
 }
 
 .w-36 {
