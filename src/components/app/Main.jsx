@@ -11,7 +11,7 @@ function Main() {
     });
 
     useEffect(() => {
-        localStorage.setItem('goals', JSON.stringify(goals));
+        localStorage.setItem('goals', []);
     }, [goals]);
 
     const sections = {
@@ -21,7 +21,7 @@ function Main() {
 
     function handleDataFromNewGoal(data) {
         const key = Math.random() * 1000;
-        const { icon, details, frequency, frequencyUnit, count, target } = data;
+        const { icon, details, frequency, frequencyUnit, target } = data;
         setGoals(prevGoals => [{ icon, details, frequency, frequencyUnit, count: 0, target, key: key }, ...prevGoals]);
         setSection('goalsList');
     }
