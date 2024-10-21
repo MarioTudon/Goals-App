@@ -21,8 +21,8 @@ function Main() {
 
     function handleDataFromNewGoal(data) {
         const key = Math.random() * 1000;
-        const { details, frequency, frequencyUnit, target, deadline, icon } = data;
-        setGoals(prevGoals => [{ details, frequency, frequencyUnit, target, deadline, icon, key: key }, ...prevGoals]);
+        const { icon, details, frequency, frequencyUnit, count, target } = data;
+        setGoals(prevGoals => [{ icon, details, frequency, frequencyUnit, count, target, key: key }, ...prevGoals]);
         setSection('goalsList');
     }
 

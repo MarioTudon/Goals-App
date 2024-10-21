@@ -9,7 +9,7 @@ function GoalsList({ goals=[] }) {
                     {
                         goals.map(goal =>
                             <li key={goal.key} className='w-full my-2 flex justify-center'>
-                                <GoalCard goal={goal.details} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={0} initialTarget={goal.target} />
+                                <GoalCard goal={goal.details} icon={goal.icon} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} initialCount={goal.count} initialTarget={goal.target} />
                             </li>
                         )
                     }
