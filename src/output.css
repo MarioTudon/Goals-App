@@ -819,6 +819,10 @@ body {
   overflow: hidden;
 }
 
+.overflow-visible {
+  overflow: visible;
+}
+
 .text-nowrap {
   text-wrap: nowrap;
 }
