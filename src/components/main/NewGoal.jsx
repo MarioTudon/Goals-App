@@ -50,7 +50,7 @@ function NewGoal({ sendDataToMain }) {
 
     return (
         <>
-            <form action="" className="w-11/12 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-4 shadow-md shadow-gray-400">
+            <form action="" className="w-5/6 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-4 shadow-md shadow-gray-400">
                 <label className="flex flex-col">
                     <div className="font-bold my-2">Describe your goal</div>
                     <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'details')} />
@@ -87,7 +87,7 @@ function NewGoal({ sendDataToMain }) {
                     </select>
                 </label>
             </form>
-            <div className="bg-gray-400 w-11/12 flex justify-end mx-auto px-4 py-2 rounded-b-xl">
+            <div className="bg-gray-400 w-5/6 flex justify-end mx-auto px-4 py-2 rounded-b-xl">
                 <Button label={"Add"} color={"bg-gray-200"} onClick={addGoal} />
             </div>
         </>
