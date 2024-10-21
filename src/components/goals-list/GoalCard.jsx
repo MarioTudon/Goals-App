@@ -29,16 +29,16 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, initialCount, initialT
         <>
             <div className="flex justify-between items-center w-full h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400" onClick={handleClick}>
                 <div className="flex">
-                    <div className="w-12 h-12 flex justify-center items-center bg-gray-50 rounded-full shadow-sm shadow-gray-400">{icon}</div>
+                    <div className="w-11 h-11 flex justify-center items-center bg-gray-50 rounded-full shadow-sm shadow-gray-400">{icon}</div>
                 </div>
-                <div className="flex flex-col flex-none items-center text-sm font-semibold text-center w-32 mx-1 overflow-auto">
+                <div className="flex flex-col items-center text-sm font-semibold text-center w-24 mx-1 overflow-hidden">
                     <p className="font-bold">{goal}</p>
                     <p>{frequency}<sub>/{frequencyUnit}</sub></p>
                 </div>
                 <div className="flex">
-                    <div className="flex flex-col items-center mr-2">
-                        <div className="text-sm font-semibold">{count} of {target}</div>
-                        <div className="w-full h-2 rounded-full bg-gray-300 px-9 relative">
+                    <div className="flex flex-col items-center mr-2 w-12">
+                        <div className="text-sm font-semibold text-center">{count} of {target}</div>
+                        <div className="w-full h-2 rounded-full bg-gray-300 relative">
                             <div className={"h-2 rounded-full bg-gradient-to-r from-emerald-300 to-cyan-500 absolute left-0"} style={{ 'width': `${percentage}%` }}></div>
                         </div>
                     </div>
