@@ -3,17 +3,17 @@ import Button from "../shared/Button"
 
 function GoalCard({ icon, goal, frequency, frequencyUnit, count, target, key }) {
     const [percentage, setPercentage] = useState('0');
-    const [newCount, setCount] = useState(initialCount);
-    const [newTarget, setTarget] = useState(initialTarget);
+    const [newCount, setCount] = useState(count);
+    const [newTarget, setTarget] = useState(target);
 
     useEffect(() => {
         setPercentage(`${newCount / newTarget * 100}`);
     }, [newCount, newTarget]);
 
     useEffect(() => {
-        setCount(initialCount);
-        setTarget(initialTarget);
-    }, [initialCount, initialTarget]);
+        setCount(count);
+        setTarget(target);
+    }, [count, target]);
 
     function completeGoal() {
         if (percentage < 100) {
