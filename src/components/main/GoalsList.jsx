@@ -1,32 +1,7 @@
 import { useEffect, useState } from 'react';
 import GoalCard from '../goals-list/GoalCard'
 
-function GoalsList({ dataFromMain }) {
-    const [goals, setGoals] = useState([])
-    useEffect(() => {
-        /*console.log(new Date().toLocaleTimeString('es-ES', {
-            hour12: false,
-        }));*/
-    }, []);
-
-    useEffect(() => {
-        if (dataFromMain) {
-            const newGoal = {
-                details: dataFromMain.detailsForm,
-                frequency: dataFromMain.frequencyForm,
-                frequencyUnit: dataFromMain.frequencyUnitsForm,
-                target: dataFromMain.targetForm,
-                deadline: dataFromMain.deadlineForm,
-                icon: dataFromMain.iconForm
-            };
-    
-            // Verificar que los datos necesarios no estén vacíos
-            if (newGoal.details && newGoal.frequency && newGoal.deadline) {
-                setGoals(prevGoals => [newGoal, ...prevGoals]);
-            }
-        }
-    }, [dataFromMain]);
-
+function GoalsList({ goals=[] }) {
     return (
         <>
             <div className='w-5/6 mx-auto'>

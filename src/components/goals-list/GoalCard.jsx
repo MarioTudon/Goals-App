@@ -17,7 +17,7 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, initialCount, initialT
 
     function completeGoal() {
         if (percentage < 100) {
-            setCount((count) => count + 1);
+            setCount(count => count + 1);
         }
     }
 

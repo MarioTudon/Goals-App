@@ -5,15 +5,17 @@ import SideMenu from '../main/SideMenu'
 
 function Main() {
     const [section, setSection] = useState('goalsList');
-    const [dataFromNewGoal, setDataFromNewGoaltAa] = useState({});
+    const [goals, setGoals] = useState([]);
 
     const sections = {
-        goalsList: <GoalsList dataFromMain={dataFromNewGoal} />,
-        newGoal: <NewGoal sendDataToParent={handleDataFromNewGoal} />
+        goalsList: <GoalsList goals={goals} />,
+        newGoal: <NewGoal sendDataToMain={handleDataFromNewGoal} />
     }
 
     function handleDataFromNewGoal(data) {
-        setDataFromNewGoaltAa(data);
+        const key = Math.random()*1000;
+        const { details, frequency, frequencyUnit, target, deadline, icon } = data;
+        setGoals(prevGoals => [{ details, frequency, frequencyUnit, target, deadline, icon, key: key }, ...prevGoals]);
         setSection('goalsList');
     }
 
