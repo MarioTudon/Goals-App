@@ -11,18 +11,13 @@ function Main() {
     });
 
     useEffect(() => {
-        localStorage.setItem('goals', JSON.stringify(logs));
+        localStorage.setItem('goals', JSON.stringify(goals));
     }, [goals]);
 
     const sections = {
         goalsList: <GoalsList goals={goals} />,
         newGoal: <NewGoal sendDataToMain={handleDataFromNewGoal} />
     }
-
-    useEffect(() => {
-        localStorage.setItem('logs', JSON.stringify(logs));
-        console.log(logs);
-    }, [logs]);
 
     function handleDataFromNewGoal(data) {
         const key = Math.random() * 1000;
