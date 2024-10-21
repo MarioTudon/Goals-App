@@ -1,19 +1,31 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import GoalsList from '../main/GoalsList'
 import NewGoal from '../main/NewGoal'
 import SideMenu from '../main/SideMenu'
 
 function Main() {
     const [section, setSection] = useState('goalsList');
-    const [goals, setGoals] = useState([]);
+    const [goals, setGoals] = useState(() => {
+        const savedGoals = JSON.parse(localStorage.getItem('goals'));
+        return savedGoals || [];
+    });
+
+    useEffect(() => {
+        localStorage.setItem('goals', JSON.stringify(logs));
+    }, [goals]);
 
     const sections = {
         goalsList: <GoalsList goals={goals} />,
         newGoal: <NewGoal sendDataToMain={handleDataFromNewGoal} />
     }
 
+    useEffect(() => {
+        localStorage.setItem('logs', JSON.stringify(logs));
+        console.log(logs);
+    }, [logs]);
+
     function handleDataFromNewGoal(data) {
-        const key = Math.random()*1000;
+        const key = Math.random() * 1000;
         const { details, frequency, frequencyUnit, target, deadline, icon } = data;
         setGoals(prevGoals => [{ details, frequency, frequencyUnit, target, deadline, icon, key: key }, ...prevGoals]);
         setSection('goalsList');
