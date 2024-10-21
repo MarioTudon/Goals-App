@@ -16,13 +16,12 @@ function Main() {
 
     const sections = {
         goalsList: <GoalsList goals={goals} />,
-        newGoal: <NewGoal sendDataToMain={handleDataFromNewGoal} />
+        newGoal: <NewGoal sendDataToMain={addGoal} />
     }
 
-    function handleDataFromNewGoal(data) {
-        const key = Math.random() * 1000;
-        const { icon, details, frequency, frequencyUnit, target } = data;
-        setGoals(prevGoals => [{ icon, details, frequency, frequencyUnit, count: 0, target, key: key }, ...prevGoals]);
+    function addGoal(newGoal) {
+        const { icon, details, frequency, frequencyUnit, target, id } = newGoal;
+        setGoals(prevGoals => [{ icon, details, frequency, frequencyUnit, target, id }, ...prevGoals]);
         setSection('goalsList');
     }
 

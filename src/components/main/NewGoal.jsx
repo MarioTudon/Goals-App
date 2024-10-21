@@ -20,7 +20,8 @@ function NewGoal({ sendDataToMain }) {
         frequencyUnit: "day",
         target: "",
         /*deadline: "",*/
-        icon: "💪"
+        icon: "💪",
+        id: ""
     })
 
     function handleChange(e, prop) {
@@ -32,6 +33,12 @@ function NewGoal({ sendDataToMain }) {
     }
 
     function addGoal() {
+        verifyAndFormatForm();
+        form.id= Math.random() * 1000;
+        sendDataToMain(form);
+    }
+
+    function verifyAndFormatForm(){
         if (form.details === "") { alert("Enter your goal description"); return; }
         if (form.frequency === "") { alert("Enter the frequency of goal"); return; }
         if (form.frequency < 1 || form.frequency > 99) { alert("Frequency must be between 1 and 99"); return; }
@@ -39,7 +46,6 @@ function NewGoal({ sendDataToMain }) {
         if (form.target < 1 || form.target > 99) { alert("Target must be between 1 and 99"); return; }
         form.frequency = removeLeadingZerosRegex(form.frequency);
         form.target = removeLeadingZerosRegex(form.target);
-        sendDataToMain(form);
     }
 
     return (
