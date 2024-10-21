@@ -11,7 +11,7 @@ function Main() {
     });
 
     useEffect(() => {
-        localStorage.setItem('goals', []);
+        localStorage.setItem('goals', '');
     }, [goals]);
 
     const sections = {
