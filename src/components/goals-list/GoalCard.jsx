@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react"
 import Button from "../shared/Button"
 
-function GoalCard({ icon, goal, frequency, frequencyUnit, initialCount, initialTarget, key }) {
+function GoalCard({ icon, goal, frequency, frequencyUnit, count, target, key }) {
     const [percentage, setPercentage] = useState('0');
-    const [count, setCount] = useState(initialCount);
-    const [target, setTarget] = useState(initialTarget);
+    const [newCount, setCount] = useState(initialCount);
+    const [newTarget, setTarget] = useState(initialTarget);
 
     useEffect(() => {
-        setPercentage(`${count / target * 100}`);
-    }, [count, target]);
+        setPercentage(`${newCount / newTarget * 100}`);
+    }, [newCount, newTarget]);
 
     useEffect(() => {
         setCount(initialCount);
@@ -17,7 +17,7 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, initialCount, initialT
 
     function completeGoal() {
         if (percentage < 100) {
-            setCount(count => count + 1);
+            setCount(newCount => newCount + 1);
         }
     }
 
@@ -37,7 +37,7 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, initialCount, initialT
                 </div>
                 <div className="flex items-center">
                     <div className="flex flex-col items-center mr-2 w-20">
-                        <div className="text-sm font-semibold text-center">{count} of {target}</div>
+                        <div className="text-sm font-semibold text-center">{newCount} of {newTarget}</div>
                         <div className="w-full h-2 rounded-full bg-gray-300 relative  shadow-sm shadow-gray-400">
                             <div className={"h-2 rounded-full bg-gradient-to-r from-emerald-300 to-cyan-500 absolute left-0"} style={{ 'width': `${percentage}%` }}></div>
                         </div>
