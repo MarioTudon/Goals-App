@@ -33,19 +33,20 @@ function NewGoal({ sendDataToMain }) {
     }
 
     function addGoal() {
-        verifyAndFormatForm();
+        if(!verifyAndFormatForm()) return;
         form.id= Math.random() * 1000;
         sendDataToMain(form);
     }
 
     function verifyAndFormatForm(){
-        if (form.details === "") { alert("Enter your goal description"); return; }
-        if (form.frequency === "") { alert("Enter the frequency of goal"); return; }
-        if (form.frequency < 1 || form.frequency > 99) { alert("Frequency must be between 1 and 99"); return; }
-        if (form.target === "") { alert("Enter your target"); return; }
-        if (form.target < 1 || form.target > 99) { alert("Target must be between 1 and 99"); return; }
+        if (form.details === "") { alert("Enter your goal description"); return false; }
+        if (form.frequency === "") { alert("Enter the frequency of goal"); return false; }
+        if (form.frequency < 1 || form.frequency > 99) { alert("Frequency must be between 1 and 99"); return false; }
+        if (form.target === "") { alert("Enter your target"); return false; }
+        if (form.target < 1 || form.target > 99) { alert("Target must be between 1 and 99"); return false; }
         form.frequency = removeLeadingZerosRegex(form.frequency);
         form.target = removeLeadingZerosRegex(form.target);
+        return true;
     }
 
     return (
