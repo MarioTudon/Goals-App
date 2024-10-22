@@ -2,7 +2,49 @@ import { useEffect, useState } from "react";
 import Button from "../shared/Button";
 
 const icons = [
-    "💪", "👽", "🧠"
+    // 1. Salud y bienestar:
+    "🏃‍♂️", // (Ejercicio/Correr)
+    "🥗", // (Comer saludable)
+    "💧", // (Hidratarse)
+    "🧘", // (Meditación / Relajación)
+    "🛌", // (Dormir mejor)
+
+    // 2. Trabajo y carrera:
+    "💼", // (Trabajo)
+    "👨‍💻", // (Desarrollo de habilidades tecnológicas)
+    "📚", // (Estudio / Lectura)
+    "📊", // (Metas de productividad)
+
+    // 3. Finanzas:
+    "💰", // (Ahorrar dinero)
+    "📉", // (Reducir gastos)
+    "🏦", // (Inversiones)
+
+    // 4. Relaciones personales:
+    "❤️", // (Cuidado de relaciones)
+    "☎️", // (Llamar a amigos / familia)
+    "🎂", // (Recordar cumpleaños)
+
+    // 5. Creatividad y hobbies:
+    "🎨", // (Arte)
+    "🎸", //  (Música / Instrumentos)
+    "📷", //  (Fotografía)
+    "✍️", // (Escritura)
+
+    // 6. Viajes y aventuras:
+    "✈️", // (Viajes)
+    "🏕️", // (Aventuras al aire libre)
+    "🏖️", // (Vacaciones)
+
+    // 7. Autodesarrollo:
+    "🧠", // (Desarrollo personal)
+    "📖", // (Leer libros)
+    "🎯", // (Mejora personal)
+
+    // 8. Cuidado del hogar:
+    "🧹", // (Limpieza)
+    "🏡", // (Tareas del hogar)
+    "🌱", // (Cuidado de plantas)
 ]
 
 const frequencyUnits = [
@@ -36,12 +78,19 @@ function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList, count
     }
 
     function editGoal() {
-        form.frequency = removeLeadingZerosRegex(form.frequency);
-        form.target = removeLeadingZerosRegex(form.target);
-        if(form.target <= count && form.target !== "") {alert("Target should be greater than count"); return;}
+        if (!verifyAndFormatForm()) return;
         form.id = originalGoal.id;
         sendDataToGoalsList(form);
         closeMenu();
+    }
+
+    function verifyAndFormatForm() {
+        if (form.frequency !== "" && (form.frequency < 1 || form.frequency > 99)) { alert("Frequency must be between 1 and 99"); return false; }
+        if (form.target !== "" && (form.target < 1 || form.target > 99)) { alert("Target must be between 1 and 99"); return false; }
+        if (form.target <= count && form.target !== "") { alert("Target should be greater than count"); return false; }
+        form.frequency = removeLeadingZerosRegex(form.frequency);
+        form.target = removeLeadingZerosRegex(form.target);
+        return true;
     }
 
     function deleteGoal() {
@@ -90,11 +139,11 @@ function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList, count
                         </label>
                     </form>
                     <div className="bg-gray-200 pb-2">
-                        <Button label={"Reset count"} styles={"bg-gray-700 text-gray-200 mx-auto"} onClick={resetCount}/>
+                        <Button label={"Reset count"} styles={"bg-gray-700 text-gray-200 mx-auto"} onClick={resetCount} />
                     </div>
                     <div className="bg-gray-400 w-full flex justify-between mx-auto px-4 py-2 rounded-b-xl">
                         <Button label={"Cancel"} styles={"bg-gray-200"} onClick={closeMenu} />
-                        <Button label={"Delete"} styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"} onClick={deleteGoal}/>
+                        <Button label={"Delete"} styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"} onClick={deleteGoal} />
                         <Button label={"Confirm"} styles={"bg-gray-200"} onClick={editGoal} />
                     </div>
                 </div>

@@ -2,7 +2,49 @@ import { useState } from "react";
 import Button from "../shared/Button";
 
 const icons = [
-    "💪", "👽", "🧠"
+    // 1. Salud y bienestar:
+    "🏃‍♂️", // (Ejercicio/Correr)
+    "🥗", // (Comer saludable)
+    "💧", // (Hidratarse)
+    "🧘", // (Meditación / Relajación)
+    "🛌", // (Dormir mejor)
+
+    // 2. Trabajo y carrera:
+    "💼", // (Trabajo)
+    "👨‍💻", // (Desarrollo de habilidades tecnológicas)
+    "📚", // (Estudio / Lectura)
+    "📊", // (Metas de productividad)
+
+    // 3. Finanzas:
+    "💰", // (Ahorrar dinero)
+    "📉", // (Reducir gastos)
+    "🏦", // (Inversiones)
+
+    // 4. Relaciones personales:
+    "❤️", // (Cuidado de relaciones)
+    "☎️", // (Llamar a amigos / familia)
+    "🎂", // (Recordar cumpleaños)
+
+    // 5. Creatividad y hobbies:
+    "🎨", // (Arte)
+    "🎸", //  (Música / Instrumentos)
+    "📷", //  (Fotografía)
+    "✍️", // (Escritura)
+
+    // 6. Viajes y aventuras:
+    "✈️", // (Viajes)
+    "🏕️", // (Aventuras al aire libre)
+    "🏖️", // (Vacaciones)
+
+    // 7. Autodesarrollo:
+    "🧠", // (Desarrollo personal)
+    "📖", // (Leer libros)
+    "🎯", // (Mejora personal)
+
+    // 8. Cuidado del hogar:
+    "🧹", // (Limpieza)
+    "🏡", // (Tareas del hogar)
+    "🌱", // (Cuidado de plantas)
 ]
 
 const frequencyUnits = [
@@ -32,12 +74,12 @@ function NewGoal({ sendDataToMain }) {
     }
 
     function addGoal() {
-        if(!verifyAndFormatForm()) return;
-        form.id= Math.random() * 1000;
+        if (!verifyAndFormatForm()) return;
+        form.id = Math.random() * 1000;
         sendDataToMain(form);
     }
 
-    function verifyAndFormatForm(){
+    function verifyAndFormatForm() {
         if (form.goal === "") { alert("Enter your goal description"); return false; }
         if (form.frequency === "") { alert("Enter the frequency of goal"); return false; }
         if (form.frequency < 1 || form.frequency > 99) { alert("Frequency must be between 1 and 99"); return false; }
