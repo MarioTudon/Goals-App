@@ -15,11 +15,10 @@ const frequencyUnits = [
 function NewGoal({ sendDataToMain }) {
 
     const [form, setForm] = useState({
-        details: "",
+        goal: "",
         frequency: "",
         frequencyUnit: "day",
         target: "",
-        /*deadline: "",*/
         icon: "💪",
         id: ""
     })
@@ -39,7 +38,7 @@ function NewGoal({ sendDataToMain }) {
     }
 
     function verifyAndFormatForm(){
-        if (form.details === "") { alert("Enter your goal description"); return false; }
+        if (form.goal === "") { alert("Enter your goal description"); return false; }
         if (form.frequency === "") { alert("Enter the frequency of goal"); return false; }
         if (form.frequency < 1 || form.frequency > 99) { alert("Frequency must be between 1 and 99"); return false; }
         if (form.target === "") { alert("Enter your target"); return false; }
@@ -54,7 +53,7 @@ function NewGoal({ sendDataToMain }) {
             <form action="" className="w-5/6 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-4 shadow-md shadow-gray-400">
                 <label className="flex flex-col">
                     <div className="font-bold my-2">Describe your goal</div>
-                    <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'details')} />
+                    <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'goal')} />
                 </label>
                 <label className="flex flex-col">
                     <div className="font-bold my-2">How often do you want to meet the goal</div>
@@ -73,10 +72,6 @@ function NewGoal({ sendDataToMain }) {
                     <div className="font-bold my-2">Enter your target goal</div>
                     <input type="number" name="" id="" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'target')} />
                 </label>
-                {/*<label className="flex flex-col mr-10">
-                    <div className="font-bold my-2">Enter the deadline for your goal</div>
-                    <input type="date" name="" id="" className="w-36 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'deadline')} />
-                </label>*/}
                 <label className="flex flex-col">
                     <div className="font-bold"> Select an icon</div>
                     <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')}>

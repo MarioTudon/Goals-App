@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../shared/Button";
 
 const icons = [
@@ -12,16 +12,19 @@ const frequencyUnits = [
     { value: "year", content: "Year", key: 3 },
 ]
 
-function EditGoal({ goal, display, closeMenu }) {
+function EditGoal({ originalGoal, display, closeMenu }) {
 
     const [form, setForm] = useState({
-        details: goal.details,
-        frequency: goal.frequency,
-        frequencyUnit: goal.frequencyUnit,
-        target: goal.target,
-        icon: goal.target,
-        id: goal.id
+        goal: "",
+        frequency: "",
+        frequencyUnit: "",
+        target: "",
+        icon: ""
     })
+
+    useEffect(() => {
+        setForm({goal:"",frequency:"",frequencyUnit:"",target:"",icon:""});
+    }, [display])
 
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
@@ -32,6 +35,12 @@ function EditGoal({ goal, display, closeMenu }) {
     }
 
     function editGoal() {
+        originalGoal.goal = form.goal !== "" ? form.goal : originalGoal.goal;
+        originalGoal.frequency = form.frequency !== "" ? form.frequency : originalGoal.frequency;
+        originalGoal.frequencyUnit = form.frequencyUnit !== "" ? form.frequencyUnit : originalGoal.frequencyUnit;
+        originalGoal.target = form.target !== "" ? form.target : originalGoal.target;
+        originalGoal.icon = form.icon !== "" ? form.icon : originalGoal.icon;
+        closeMenu();
     }
 
     return display && (
@@ -44,13 +53,13 @@ function EditGoal({ goal, display, closeMenu }) {
                     <form action="" className="w-full flex flex-col bg-gray-200 mx-auto px-4 pt-2 shadow-md shadow-gray-400">
                         <label className="flex flex-col">
                             <div className="font-bold mb-2">Describe your goal</div>
-                            <input type="text" name="goal-description" id="goal-description" defaultValue={goal.details} maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'details')} />
+                            <input type="text" name="goal-description" id="goal-description" defaultValue={originalGoal.goal} maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'goal')} />
                         </label>
                         <label className="flex flex-col">
                             <div className="font-bold my-2">How often do you want to meet the goal</div>
                             <div className="flex">
-                                <input type="number" name="frequency" id="frequency" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'frequency')} defaultValue={goal.frequency}/>
-                                <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')} defaultValue={goal.frequencyUnit}>
+                                <input type="number" name="frequency" id="frequency" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'frequency')} defaultValue={originalGoal.frequency} />
+                                <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')} defaultValue={originalGoal.frequencyUnit}>
                                     {
                                         frequencyUnits.map(frequencyUnit =>
                                             <option key={frequencyUnit.key} value={frequencyUnit.value}>{frequencyUnit.content}</option>
@@ -61,11 +70,11 @@ function EditGoal({ goal, display, closeMenu }) {
                         </label>
                         <label className="flex flex-col mr-10">
                             <div className="font-bold my-2">Enter your target goal</div>
-                            <input type="number" name="" id="" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'target')} defaultValue={goal.target}/>
+                            <input type="number" name="" id="" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'target')} defaultValue={originalGoal.target} />
                         </label>
                         <label className="flex flex-col">
                             <div className="font-bold"> Select an icon</div>
-                            <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')} defaultValue={goal.icon}>
+                            <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')} defaultValue={originalGoal.icon}>
                                 {
                                     icons.map(icon =>
                                         <option value={icon} key={icon}>{icon}</option>

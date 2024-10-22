@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import Button from "../shared/Button"
 
-function GoalCard({ icon, goal, frequency, frequencyUnit, target, id }) {
+function GoalCard({ goal, frequency, frequencyUnit, target, icon, id }) {
     const [percentage, setPercentage] = useState('0');
-    const [count, setCount] = useState(()=>{
+    const [count, setCount] = useState(() => {
         const savedCount = JSON.parse(localStorage.getItem(id));
         return savedCount || 0
     });
@@ -11,10 +11,10 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, target, id }) {
     useEffect(() => {
         setPercentage(`${count / target * 100}`);
         localStorage.setItem(id, JSON.stringify(count));
-    }, [count]);
+    }, [count, target]);
 
     function completeGoal(e) {
-        e.stopPropagation();    
+        e.stopPropagation();
         if (percentage < 100) {
             setCount(newCount => newCount + 1);
         }
@@ -37,7 +37,7 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, target, id }) {
                             <div className={"h-2 rounded-full bg-gradient-to-r from-emerald-300 to-cyan-500 absolute left-0"} style={{ 'width': `${percentage}%` }}></div>
                         </div>
                     </div>
-                    <Button label={"Complete"} styles={'bg-gray-50'} onClick={completeGoal} style={{"background-color":"red"}}/>
+                    <Button label={"Complete"} styles={'bg-gray-50'} onClick={completeGoal} style={{ "background-color": "red" }} />
                 </div>
             </div>
         </>

@@ -20,8 +20,8 @@ function Main() {
     }
 
     function addGoal(newGoal) {
-        const { icon, details, frequency, frequencyUnit, target, id } = newGoal;
-        setGoals(prevGoals => [{ icon, details, frequency, frequencyUnit, target, id }, ...prevGoals]);
+        const { goal, frequency, frequencyUnit, target, icon, id } = newGoal;
+        setGoals(prevGoals => [{ goal, frequency, frequencyUnit, target, icon, id }, ...prevGoals]);
         setSection('goalsList');
     }
 
