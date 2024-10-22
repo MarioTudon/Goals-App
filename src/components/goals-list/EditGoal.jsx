@@ -12,18 +12,19 @@ const frequencyUnits = [
     { value: "year", content: "Year", key: 3 },
 ]
 
-function EditGoal({ originalGoal, display, closeMenu }) {
+function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList }) {
 
     const [form, setForm] = useState({
         goal: "",
         frequency: "",
         frequencyUnit: "",
         target: "",
-        icon: ""
+        icon: "",
+        id: ""
     })
 
     useEffect(() => {
-        setForm({goal:"",frequency:"",frequencyUnit:"",target:"",icon:""});
+        setForm({ goal: "", frequency: "", frequencyUnit: "", target: "", icon: "" });
     }, [display])
 
     function handleChange(e, prop) {
@@ -35,11 +36,15 @@ function EditGoal({ originalGoal, display, closeMenu }) {
     }
 
     function editGoal() {
-        originalGoal.goal = form.goal !== "" ? form.goal : originalGoal.goal;
-        originalGoal.frequency = form.frequency !== "" ? form.frequency : originalGoal.frequency;
-        originalGoal.frequencyUnit = form.frequencyUnit !== "" ? form.frequencyUnit : originalGoal.frequencyUnit;
-        originalGoal.target = form.target !== "" ? form.target : originalGoal.target;
-        originalGoal.icon = form.icon !== "" ? form.icon : originalGoal.icon;
+        form.frequency = removeLeadingZerosRegex(form.frequency);
+        form.target = removeLeadingZerosRegex(form.target);
+        form.id = originalGoal.id;
+        sendDataToGoalsList(form);
+        closeMenu();
+    }
+
+    function deleteGoal() {
+        sendDataToGoalsList(originalGoal.id);
         closeMenu();
     }
 
@@ -88,7 +93,7 @@ function EditGoal({ originalGoal, display, closeMenu }) {
                     </div>
                     <div className="bg-gray-400 w-full flex justify-between mx-auto px-4 py-2 rounded-b-xl">
                         <Button label={"Cancel"} styles={"bg-gray-200"} onClick={closeMenu} />
-                        <Button label={"Delete"} styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"} />
+                        <Button label={"Delete"} styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"} onClick={deleteGoal}/>
                         <Button label={"Confirm"} styles={"bg-gray-200"} onClick={editGoal} />
                     </div>
                 </div>

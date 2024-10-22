@@ -15,14 +15,37 @@ function Main() {
     }, [goals]);
 
     const sections = {
-        goalsList: <GoalsList goals={goals} />,
+        goalsList: <GoalsList goals={goals} sendDataToMain={editGoal} />,
         newGoal: <NewGoal sendDataToMain={addGoal} />
     }
 
-    function addGoal(newGoal) {
-        const { goal, frequency, frequencyUnit, target, icon, id } = newGoal;
+    function addGoal(form) {
+        const { goal, frequency, frequencyUnit, target, icon, id } = form;
         setGoals(prevGoals => [{ goal, frequency, frequencyUnit, target, icon, id }, ...prevGoals]);
         setSection('goalsList');
+    }
+
+    function editGoal(form) {
+        if (typeof form === "object") {
+            const { goal, frequency, frequencyUnit, target, icon, id } = form;
+            const editedGoals = goals.map(editedGoal => {
+                if (editedGoal.id === id) {
+                    editedGoal.goal = goal !== "" ? goal : editedGoal.goal;
+                    editedGoal.frequency = frequency !== "" ? frequency : editedGoal.frequency;
+                    editedGoal.frequencyUnit = frequencyUnit !== "" ? frequencyUnit : editedGoal.frequencyUnit;
+                    editedGoal.target = target !== "" ? target : editedGoal.target;
+                    editedGoal.icon = icon !== "" ? icon : editedGoal.icon;
+                }
+                return editedGoal;
+            })
+            setGoals(editedGoals)
+        }
+        else {
+            console.log(form);
+            setGoals(
+                goals.filter(g => g.id !== form)
+            );
+        }
     }
 
     function handleDataFromSideMenu(sectionID) {

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import GoalCard from '../goals-list/GoalCard'
 import EditGoal from '../goals-list/EditGoal';
 
-function GoalsList({ goals = [] }) {
+function GoalsList({ goals = [], sendDataToMain }) {
     const [display, setDisplay] = useState(false);
     const [originalGoal, setOriginalGoal] = useState({});
 
@@ -13,6 +13,10 @@ function GoalsList({ goals = [] }) {
 
     function closeMnenu() {
         setDisplay(false);
+    }
+
+    function handleDataFromEditGoal(form) {
+        sendDataToMain(form);
     }
 
     return (
@@ -28,7 +32,7 @@ function GoalsList({ goals = [] }) {
                     }
                 </ul>
             </div>
-            <EditGoal closeMenu={closeMnenu} display={display} originalGoal={originalGoal} />
+            <EditGoal closeMenu={closeMnenu} display={display} originalGoal={originalGoal} goalsList={goals} sendDataToGoalsList={handleDataFromEditGoal} />
         </>
     )
 }
