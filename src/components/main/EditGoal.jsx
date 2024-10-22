@@ -61,7 +61,7 @@ function EditGoal({ goalData, display, closeMenu }) {
                             <div className="font-bold my-2">How often do you want to meet the goal</div>
                             <div className="flex">
                                 <input type="number" name="frequency" id="frequency" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'frequency')} placeholder={goalData.frequency}/>
-                                <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')} value={goalData.frequencyUnit}>
+                                <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')} selected={goalData.frequencyUnit}>
                                     {
                                         frequencyUnits.map(frequencyUnit =>
                                             <option key={frequencyUnit.key} value={frequencyUnit.value}>{frequencyUnit.content}</option>
@@ -76,7 +76,7 @@ function EditGoal({ goalData, display, closeMenu }) {
                         </label>
                         <label className="flex flex-col">
                             <div className="font-bold"> Select an icon</div>
-                            <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')} placeholder={goalData.icon}>
+                            <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')} selected={goalData.icon}>
                                 {
                                     icons.map(icon =>
                                         <option value={icon} key={icon}>{icon}</option>
