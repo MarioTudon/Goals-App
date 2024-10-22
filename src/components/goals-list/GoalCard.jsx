@@ -19,13 +19,9 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, target, id }) {
         }
     }
 
-    function handleClick(e) {
-        e.stopPropagation();
-    }
-
     return (
         <>
-            <div className="flex justify-between items-center w-full h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400" onClick={handleClick}>
+            <div className="flex justify-between items-center w-full h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400">
                 <div className="flex">
                     <div className="w-14 h-14 flex text-2xl justify-center items-center bg-gray-50 rounded-full shadow-inner shadow-gray-400">{icon}</div>
                 </div>
@@ -40,7 +36,7 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, target, id }) {
                             <div className={"h-2 rounded-full bg-gradient-to-r from-emerald-300 to-cyan-500 absolute left-0"} style={{ 'width': `${percentage}%` }}></div>
                         </div>
                     </div>
-                    <Button label={"Complete"} color={'bg-gray-50'} onClick={completeGoal} />
+                    <Button label={"Complete"} styles={'bg-gray-50'} onClick={completeGoal} style={{"background-color":"red"}}/>
                 </div>
             </div>
         </>

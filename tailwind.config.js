@@ -9,7 +9,7 @@ module.exports = {
         fast: '200ms'
       },
       colors: {
-        'gray-200-glass': 'rgba(229, 231, 235, 0.20)'
+        'gray-400-transparent': 'rgba(39, 39, 42, 0.60)'
       },
       animation: {
         rightBounce: 'rightBounce 1.5s ease infinite',

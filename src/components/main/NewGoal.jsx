@@ -89,7 +89,7 @@ function NewGoal({ sendDataToMain }) {
                 </label>
             </form>
             <div className="bg-gray-400 w-5/6 flex justify-end mx-auto px-4 py-2 rounded-b-xl">
-                <Button label={"Add"} color={"bg-gray-200"} onClick={addGoal} />
+                <Button label={"Add"} styles={"bg-gray-200"} onClick={addGoal} />
             </div>
         </>
     )

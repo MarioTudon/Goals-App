@@ -9,7 +9,7 @@ function Header() {
 
     return (
         <>
-            <header className='h-12 flex justify-between text-gray-700 relative py-2 bg-gray-200 shadow-md shadow-gray-400 z-20'>
+            <header className='h-12 flex justify-between text-gray-700 relative py-2 bg-gray-200 shadow-md shadow-gray-400 z-40'>
                 <div className='flex items-center ml-4'>
                     <a href='/Goals-App' className='mr-2 '>
                         <img src={logoIcon} alt='logo' className='w-10 h-10' />
