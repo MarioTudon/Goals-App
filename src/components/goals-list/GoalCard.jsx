@@ -13,7 +13,8 @@ function GoalCard({ icon, goal, frequency, frequencyUnit, target, id }) {
         localStorage.setItem(id, JSON.stringify(count));
     }, [count]);
 
-    function completeGoal() {
+    function completeGoal(e) {
+        e.stopPropagation();    
         if (percentage < 100) {
             setCount(newCount => newCount + 1);
         }

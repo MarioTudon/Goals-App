@@ -4,11 +4,11 @@ import EditGoal from './EditGoal';
 
 function GoalsList({ goals = [] }) {
     const [display, setDisplay] = useState(false);
-    const [goalData, setGoalData] = useState({});
+    const [goal, setGoal] = useState({});
 
     function openMenu(goal) {
         setDisplay(true);
-        setGoalData(goal);
+        setGoal(goal);
     }
 
     function closeMnenu() {
@@ -28,7 +28,7 @@ function GoalsList({ goals = [] }) {
                     }
                 </ul>
             </div>
-            <EditGoal closeMenu={closeMnenu} display={display} goalData={goalData}/>
+            <EditGoal closeMenu={closeMnenu} display={display} goal={goal}/>
         </>
     )
 }
