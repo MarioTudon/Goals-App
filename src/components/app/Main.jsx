@@ -15,35 +15,37 @@ function Main() {
     }, [goals]);
 
     const sections = {
-        goalsList: <GoalsList goals={goals} sendDataToMain={editGoal} />,
+        goalsList: <GoalsList goals={goals} sendDataToMain={editDeleteGoal} />,
         newGoal: <NewGoal sendDataToMain={addGoal} />
     }
 
     function addGoal(form) {
-        const { goal, frequency, frequencyUnit, target, icon, id } = form;
+        const { goal, frequency, frequencyUnit, target, icon, id  } = form;
         setGoals(prevGoals => [{ goal, frequency, frequencyUnit, target, icon, id }, ...prevGoals]);
         setSection('goalsList');
     }
 
-    function editGoal(form) {
-        if (typeof form === "object") {
-            const { goal, frequency, frequencyUnit, target, icon, id } = form;
+    function editDeleteGoal(data) {
+        if (typeof data === "object") {
+            const { goal, frequency, frequencyUnit, target, icon, id } = data;
             const editedGoals = goals.map(editedGoal => {
                 if (editedGoal.id === id) {
-                    editedGoal.goal = goal !== "" ? goal : editedGoal.goal;
-                    editedGoal.frequency = frequency !== "" ? frequency : editedGoal.frequency;
-                    editedGoal.frequencyUnit = frequencyUnit !== "" ? frequencyUnit : editedGoal.frequencyUnit;
-                    editedGoal.target = target !== "" ? target : editedGoal.target;
-                    editedGoal.icon = icon !== "" ? icon : editedGoal.icon;
+                    return {
+                        ...editedGoal,
+                        goal: goal !== "" ? goal : editedGoal.goal,
+                        frequency: frequency !== "" ? frequency : editedGoal.frequency,
+                        frequencyUnit: frequencyUnit !== "" ? frequencyUnit : editedGoal.frequencyUnit,
+                        target: target !== "" ? target : editedGoal.target,
+                        icon: icon !== "" ? icon : editedGoal.icon
+                    }
                 }
                 return editedGoal;
             })
-            setGoals(editedGoals)
+            setGoals(editedGoals);
         }
         else {
-            console.log(form);
             setGoals(
-                goals.filter(g => g.id !== form)
+                goals.filter(g => g.id !== data)
             );
         }
     }

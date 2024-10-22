@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Button from "../shared/Button"
 
-function GoalCard({ goal, frequency, frequencyUnit, target, icon, id }) {
+function GoalCard({ goal, frequency, frequencyUnit, target, icon, id, sendCount, setResetCount }) {
     const [percentage, setPercentage] = useState('0');
     const [count, setCount] = useState(() => {
         const savedCount = JSON.parse(localStorage.getItem(id));
@@ -11,7 +11,16 @@ function GoalCard({ goal, frequency, frequencyUnit, target, icon, id }) {
     useEffect(() => {
         setPercentage(`${count / target * 100}`);
         localStorage.setItem(id, JSON.stringify(count));
+        sendCount(count);
     }, [count, target]);
+
+    function resetCount() {
+        setCount(0);
+    }
+
+    useEffect(() => {
+        setResetCount(resetCount);
+    }, [setResetCount])
 
     function completeGoal(e) {
         e.stopPropagation();

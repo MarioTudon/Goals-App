@@ -12,7 +12,7 @@ const frequencyUnits = [
     { value: "year", content: "Year", key: 3 },
 ]
 
-function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList }) {
+function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList, count, resetCount }) {
 
     const [form, setForm] = useState({
         goal: "",
@@ -38,6 +38,7 @@ function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList }) {
     function editGoal() {
         form.frequency = removeLeadingZerosRegex(form.frequency);
         form.target = removeLeadingZerosRegex(form.target);
+        if(form.target <= count && form.target !== "") {alert("Target should be greater than count"); return;}
         form.id = originalGoal.id;
         sendDataToGoalsList(form);
         closeMenu();
@@ -89,7 +90,7 @@ function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList }) {
                         </label>
                     </form>
                     <div className="bg-gray-200 pb-2">
-                        <Button label={"Reset count"} styles={"bg-gray-700 text-gray-200 mx-auto"} />
+                        <Button label={"Reset count"} styles={"bg-gray-700 text-gray-200 mx-auto"} onClick={resetCount}/>
                     </div>
                     <div className="bg-gray-400 w-full flex justify-between mx-auto px-4 py-2 rounded-b-xl">
                         <Button label={"Cancel"} styles={"bg-gray-200"} onClick={closeMenu} />
