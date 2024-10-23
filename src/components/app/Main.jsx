@@ -56,7 +56,7 @@ function Main() {
 
     return (
         <>
-            <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100'>
+            <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 lg:flex lg:flex-grow-0'>
                 <SideMenu sendDataToMain={handleDataFromSideMenu} />
                 {sections[section]}
             </main>

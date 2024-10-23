@@ -31,7 +31,7 @@ function GoalCard({ goal, frequency, frequencyUnit, target, icon, id, sendCount,
 
     return (
         <>
-            <div className="flex justify-between items-center w-full h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400">
+            <div className="flex justify-between items-center w-full h-auto bg-gray-200 p-2 rounded-xl shadow-md shadow-gray-400 lg:cursor-pointer">
                 <div className="flex">
                     <div className="w-14 h-14 flex text-2xl justify-center items-center bg-gray-50 rounded-full shadow-inner shadow-gray-400">{icon}</div>
                 </div>

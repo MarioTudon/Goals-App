@@ -32,8 +32,8 @@ function GoalsList({ goals = [], sendDataToMain }) {
 
     return (
         <>
-            <div className='w-11/12 mx-auto'>
-                <ul className='w-full h-full flex flex-col mt-2'>
+            <div className='w-11/12 mx-auto lg:w-3/4'>
+                <ul className='w-full h-3/4 flex flex-col mt-2 lg:mt-0 overflow-auto'>
                     {
                         goals.map(goal =>
                             <li key={goal.id} className='w-full my-2 flex justify-center' onClick={() => openMenu(goal)}>

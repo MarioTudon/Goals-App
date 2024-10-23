@@ -61,7 +61,7 @@ function NewGoal({ sendDataToMain }) {
         frequency: "",
         frequencyUnit: "day",
         target: "",
-        icon: "💪",
+        icon: "🏃‍♂️",
         id: ""
     })
 
@@ -92,41 +92,46 @@ function NewGoal({ sendDataToMain }) {
 
     return (
         <>
-            <form action="" className="w-5/6 flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 rounded-t-xl mt-4 shadow-md shadow-gray-400">
-                <label className="flex flex-col">
-                    <div className="font-bold my-2">Describe your goal</div>
-                    <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'goal')} />
-                </label>
-                <label className="flex flex-col">
-                    <div className="font-bold my-2">How often do you want to meet the goal</div>
-                    <div className="flex">
-                        <input type="number" name="frequency" id="frequency" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'frequency')} />
-                        <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')}>
+            <div className="w-5/6 top-0 h-full z-30 mx-auto lg:w-1/3">
+                    <div className="bg-gray-400 w-full flex justify-center mx-auto px-4 py-2 rounded-t-xl uppercase font-bold text-gray-100  mt-4">
+                        Create your goal
+                    </div>
+                <form action="" className="w-full flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 shadow-md shadow-gray-400">
+                    <label className="flex flex-col">
+                        <div className="font-bold my-2">Describe your goal</div>
+                        <input type="text" name="goal-description" id="goal-description" placeholder="E.g. Running 30 minutes" maxLength={30} className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'goal')} />
+                    </label>
+                    <label className="flex flex-col">
+                        <div className="font-bold my-2">How often do you want to meet the goal</div>
+                        <div className="flex">
+                            <input type="number" name="frequency" id="frequency" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'frequency')} />
+                            <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')}>
+                                {
+                                    frequencyUnits.map(frequencyUnit =>
+                                        <option key={frequencyUnit.key} value={frequencyUnit.value}>{frequencyUnit.content}</option>
+                                    )
+                                }
+                            </select>
+                        </div>
+                    </label>
+                    <label className="flex flex-col mr-10">
+                        <div className="font-bold my-2">Enter your target goal</div>
+                        <input type="number" name="" id="" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'target')} />
+                    </label>
+                    <label className="flex flex-col">
+                        <div className="font-bold"> Select an icon</div>
+                        <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')}>
                             {
-                                frequencyUnits.map(frequencyUnit =>
-                                    <option key={frequencyUnit.key} value={frequencyUnit.value}>{frequencyUnit.content}</option>
+                                icons.map(icon =>
+                                    <option value={icon} key={icon}>{icon}</option>
                                 )
                             }
                         </select>
-                    </div>
-                </label>
-                <label className="flex flex-col mr-10">
-                    <div className="font-bold my-2">Enter your target goal</div>
-                    <input type="number" name="" id="" className="w-16 mr-5 py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'target')} />
-                </label>
-                <label className="flex flex-col">
-                    <div className="font-bold"> Select an icon</div>
-                    <select name="" id="" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'icon')}>
-                        {
-                            icons.map(icon =>
-                                <option value={icon} key={icon}>{icon}</option>
-                            )
-                        }
-                    </select>
-                </label>
-            </form>
-            <div className="bg-gray-400 w-5/6 flex justify-end mx-auto px-4 py-2 rounded-b-xl">
-                <Button label={"Add"} styles={"bg-gray-200"} onClick={addGoal} />
+                    </label>
+                </form>
+                <div className="bg-gray-400 w-full flex justify-end mx-auto px-4 py-2 rounded-b-xl">
+                    <Button label={"Add"} styles={"bg-gray-200"} onClick={addGoal} />
+                </div>
             </div>
         </>
     )
