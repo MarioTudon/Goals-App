@@ -40,13 +40,13 @@ function GoalsList({ goals = [], sendDataToMain }) {
                     {
                         goals.map(goal =>
                             <li key={goal.id} className='w-full my-2 flex justify-center last:mb-4 first:mt-4' onClick={() => openMenu(goal)}>
-                                <GoalCard 
-                                    goal={goal.goal} 
-                                    frequency={goal.frequency} 
-                                    frequencyUnit={goal.frequencyUnit} 
-                                    target={goal.target} 
-                                    icon={goal.icon} 
-                                    id={goal.id} 
+                                <GoalCard
+                                    goal={goal.goal}
+                                    frequency={goal.frequency}
+                                    frequencyUnit={goal.frequencyUnit}
+                                    target={goal.target}
+                                    icon={goal.icon}
+                                    id={goal.id}
                                     sendCount={handleCount}
                                     setResetCount={fn => resetCounterRefs.current[goal.id] = fn} // Asigna la función de reset a la referencia específica de la meta
                                 />
@@ -55,13 +55,13 @@ function GoalsList({ goals = [], sendDataToMain }) {
                     }
                 </ul>
             </div>
-            <EditGoal 
-                closeMenu={closeMenu} 
-                display={display} 
-                originalGoal={originalGoal} 
-                goalsList={goals} 
-                sendDataToGoalsList={handleDataFromEditGoal} 
-                count={count} 
+            <EditGoal
+                closeMenu={closeMenu}
+                display={display}
+                originalGoal={originalGoal}
+                goalsList={goals}
+                sendDataToGoalsList={handleDataFromEditGoal}
+                count={count}
                 resetCount={() => resetCounter(originalGoal.id)} // Resetea solo el contador de la meta que está siendo editada
             />
         </>

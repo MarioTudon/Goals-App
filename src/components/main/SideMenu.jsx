@@ -38,6 +38,7 @@ function SideMenu({ sendDataToMain }) {
                     text={'Goals List'}
                     sendDataToSideMenu={handleDataFromSideMenuButton}
                     sectionID={"goalsList"}
+                    autoFocus
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3">
                         <path d="M6 15.8L7.14286 17L10 14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />
