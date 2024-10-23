@@ -140,12 +140,28 @@ function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList, count
                         </label>
                     </form>
                     <div className="bg-gray-200 pb-2">
-                        <Button label={"Reset count"} styles={"bg-gray-700 text-gray-200 mx-auto"} onClick={resetCount} />
+                        <Button
+                            label={"Reset count"}
+                            styles={"bg-gray-700 text-gray-200 mx-auto"}
+                            onClick={resetCount}
+                        />
                     </div>
                     <div className="bg-gray-400 w-full flex justify-between mx-auto px-4 py-2 rounded-b-xl">
-                        <Button label={"Cancel"} styles={"bg-gray-200"} onClick={closeMenu} />
-                        <Button label={"Delete"} styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"} onClick={deleteGoal} />
-                        <Button label={"Confirm"} styles={"bg-gray-200"} onClick={editGoal} />
+                        <Button
+                            label={"Cancel"}
+                            styles={"bg-gray-200"}
+                            onClick={closeMenu}
+                        />
+                        <Button
+                            label={"Delete"}
+                            styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"}
+                            onClick={deleteGoal}
+                        />
+                        <Button
+                            label={"Confirm"}
+                            styles={"bg-gray-200"}
+                            onClick={editGoal}
+                        />
                     </div>
                 </div>
             </div>

@@ -15,12 +15,17 @@ function Main() {
     }, [goals]);
 
     const sections = {
-        goalsList: <GoalsList goals={goals} sendDataToMain={editDeleteGoal} />,
-        newGoal: <NewGoal sendDataToMain={addGoal} />
+        goalsList: <GoalsList
+            goals={goals}
+            sendDataToMain={editDeleteGoal}
+        />,
+        newGoal: <NewGoal
+            sendDataToMain={addGoal}
+        />
     }
 
     function addGoal(form) {
-        const { goal, frequency, frequencyUnit, target, icon, id  } = form;
+        const { goal, frequency, frequencyUnit, target, icon, id } = form;
         setGoals(prevGoals => [{ goal, frequency, frequencyUnit, target, icon, id }, ...prevGoals]);
         setSection('goalsList');
     }

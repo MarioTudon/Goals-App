@@ -93,9 +93,9 @@ function NewGoal({ sendDataToMain }) {
     return (
         <>
             <div className="w-5/6 top-0 h-full mx-auto lg:w-1/3">
-                    <div className="bg-gray-400 w-full flex justify-center mx-auto px-4 py-2 rounded-t-xl uppercase font-bold text-gray-100  mt-4">
-                        Create your goal
-                    </div>
+                <div className="bg-gray-400 w-full flex justify-center mx-auto px-4 py-2 rounded-t-xl uppercase font-bold text-gray-100  mt-4">
+                    Create your goal
+                </div>
                 <form action="" className="w-full flex flex-col bg-gray-200 mx-auto px-4 pb-4 pt-2 shadow-md shadow-gray-400">
                     <label className="flex flex-col">
                         <div className="font-bold my-2">Describe your goal</div>
@@ -130,7 +130,11 @@ function NewGoal({ sendDataToMain }) {
                     </label>
                 </form>
                 <div className="bg-gray-400 w-full flex justify-end mx-auto px-4 py-2 rounded-b-xl">
-                    <Button label={"Add"} styles={"bg-gray-200"} onClick={addGoal} />
+                    <Button
+                        label={"Add"}
+                        styles={"bg-gray-200"}
+                        onClick={addGoal}
+                    />
                 </div>
             </div>
         </>

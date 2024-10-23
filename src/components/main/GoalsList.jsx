@@ -6,7 +6,7 @@ function GoalsList({ goals = [], sendDataToMain }) {
     const [display, setDisplay] = useState(false);
     const [originalGoal, setOriginalGoal] = useState({});
     const [count, setCount] = useState(0);
-    const resetCounterRef = useRef(null);
+    const resetCounterRefs = useRef({}); // Un objeto para manejar múltiples referencias
 
     function openMenu(originalGoal) {
         setDisplay(true);
@@ -17,10 +17,13 @@ function GoalsList({ goals = [], sendDataToMain }) {
         setDisplay(false);
     }
 
-    function resetCounter(){
-        resetCounterRef.current();
-        closeMenu();
+    function resetCounter(goalId) {
+        // Verifica si existe una referencia para el contador de esa meta en particular
+        if (resetCounterRefs.current[goalId]) {
+            resetCounterRefs.current[goalId]();
         }
+        closeMenu();
+    }
 
     function handleDataFromEditGoal(form) {
         sendDataToMain(form);
@@ -37,15 +40,32 @@ function GoalsList({ goals = [], sendDataToMain }) {
                     {
                         goals.map(goal =>
                             <li key={goal.id} className='w-full my-2 flex justify-center last:mb-4 first:mt-4' onClick={() => openMenu(goal)}>
-                                <GoalCard goal={goal.goal} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} target={goal.target} icon={goal.icon} id={goal.id} sendCount={handleCount} setResetCount={fn => resetCounterRef.current = fn}/>
+                                <GoalCard 
+                                    goal={goal.goal} 
+                                    frequency={goal.frequency} 
+                                    frequencyUnit={goal.frequencyUnit} 
+                                    target={goal.target} 
+                                    icon={goal.icon} 
+                                    id={goal.id} 
+                                    sendCount={handleCount}
+                                    setResetCount={fn => resetCounterRefs.current[goal.id] = fn} // Asigna la función de reset a la referencia específica de la meta
+                                />
                             </li>
                         )
                     }
                 </ul>
             </div>
-            <EditGoal closeMenu={closeMenu} display={display} originalGoal={originalGoal} goalsList={goals} sendDataToGoalsList={handleDataFromEditGoal} count={count} resetCount={resetCounter} />
+            <EditGoal 
+                closeMenu={closeMenu} 
+                display={display} 
+                originalGoal={originalGoal} 
+                goalsList={goals} 
+                sendDataToGoalsList={handleDataFromEditGoal} 
+                count={count} 
+                resetCount={() => resetCounter(originalGoal.id)} // Resetea solo el contador de la meta que está siendo editada
+            />
         </>
     )
 }
 
-export default GoalsList
+export default GoalsList;
