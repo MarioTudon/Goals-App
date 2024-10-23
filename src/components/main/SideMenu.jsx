@@ -33,7 +33,7 @@ function SideMenu({ sendDataToMain }) {
 
     return (
         <>
-            <aside className={`flex flex-col justify-start text-gray-700 bg-gray-100 h-full ${asideWidth} lg:w-40 lg:relative transition-all duration-slow shadow-md shadow-gray-400 absolute z-10`}>
+            <aside className={`flex flex-col justify-start text-gray-700 bg-gray-100 h-full ${asideWidth} lg:w-60 lg:relative transition-all duration-slow shadow-md shadow-gray-400 absolute z-10`}>
                 <SideMenuButton text={'Goals List'} sendDataToSideMenu={handleDataFromSideMenuButton} sectionID={"goalsList"}>
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3">
                         <path d="M6 15.8L7.14286 17L10 14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />

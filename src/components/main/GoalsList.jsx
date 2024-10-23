@@ -32,11 +32,11 @@ function GoalsList({ goals = [], sendDataToMain }) {
 
     return (
         <>
-            <div className='w-11/12 mx-auto lg:w-3/4'>
-                <ul className='w-full h-3/4 flex flex-col mt-2 lg:mt-0 overflow-auto'>
+            <div className='w-11/12 mx-auto h-full lg:w-1/2'>
+                <ul className='w-full h-full flex flex-col lg:mt-0 overflow-y-auto overflow-x-clip lg:px-8'>
                     {
                         goals.map(goal =>
-                            <li key={goal.id} className='w-full my-2 flex justify-center' onClick={() => openMenu(goal)}>
+                            <li key={goal.id} className='w-full my-2 flex justify-center last:mb-4 first:mt-4' onClick={() => openMenu(goal)}>
                                 <GoalCard goal={goal.goal} frequency={goal.frequency} frequencyUnit={goal.frequencyUnit} target={goal.target} icon={goal.icon} id={goal.id} sendCount={handleCount} setResetCount={fn => resetCounterRef.current = fn}/>
                             </li>
                         )

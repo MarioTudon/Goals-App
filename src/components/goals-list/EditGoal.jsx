@@ -95,6 +95,7 @@ function EditGoal({ originalGoal, display, closeMenu, sendDataToGoalsList, count
 
     function deleteGoal() {
         sendDataToGoalsList(originalGoal.id);
+        localStorage.removeItem(originalGoal.id);
         closeMenu();
     }
 

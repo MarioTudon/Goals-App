@@ -643,8 +643,32 @@ body {
   margin-bottom: auto;
 }
 
+.my-4 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.my-3 {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.mx-6 {
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+
+.mx-5 {
+  margin-left: 1.25rem;
+  margin-right: 1.25rem;
+}
+
 .mb-2 {
   margin-bottom: 0.5rem;
+}
+
+.mb-auto {
+  margin-bottom: auto;
 }
 
 .ml-4 {
@@ -687,10 +711,6 @@ body {
   margin-top: auto;
 }
 
-.mb-auto {
-  margin-bottom: auto;
-}
-
 .flex {
   display: flex;
 }
@@ -715,6 +735,10 @@ body {
   height: 0.5rem;
 }
 
+.h-3\/4 {
+  height: 75%;
+}
+
 .h-4 {
   height: 1rem;
 }
@@ -737,10 +761,6 @@ body {
 
 .h-screen {
   height: 100vh;
-}
-
-.h-3\/4 {
-  height: 75%;
 }
 
 .min-h-6 {
@@ -812,8 +832,8 @@ body {
   min-width: 1.5rem;
 }
 
-.flex-grow-0 {
-  flex-grow: 0;
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .-translate-x-1\/2 {
@@ -883,12 +903,24 @@ body {
   overflow: hidden;
 }
 
-.overflow-scroll {
-  overflow: scroll;
-}
-
 .overflow-x-auto {
   overflow-x: auto;
+}
+
+.overflow-y-auto {
+  overflow-y: auto;
+}
+
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+
+.overflow-x-clip {
+  overflow-x: clip;
+}
+
+.overflow-x-visible {
+  overflow-x: visible;
 }
 
 .text-nowrap {
@@ -1024,6 +1056,11 @@ body {
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
+}
+
+.px-8 {
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .pb-2 {
@@ -1176,15 +1213,29 @@ body {
   transition-duration: 600ms;
 }
 
+.first\:m-4:first-child {
+  margin: 1rem;
+}
+
+.first\:mb-4:first-child {
+  margin-bottom: 1rem;
+}
+
+.first\:mt-4:first-child {
+  margin-top: 1rem;
+}
+
+.last\:mb-4:last-child {
+  margin-bottom: 1rem;
+}
+
+.last\:mb-10:last-child {
+  margin-bottom: 2.5rem;
+}
+
 .hover\:scale-125:hover {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.group:hover .group-hover\:scale-110 {
-  --tw-scale-x: 1.1;
-  --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
@@ -1193,13 +1244,12 @@ body {
     position: relative;
   }
 
-  .lg\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-
   .lg\:mt-0 {
     margin-top: 0px;
+  }
+
+  .lg\:mr-6 {
+    margin-right: 1.5rem;
   }
 
   .lg\:flex {
@@ -1210,46 +1260,85 @@ body {
     display: none;
   }
 
-  .lg\:w-40 {
-    width: 10rem;
+  .lg\:h-24 {
+    height: 6rem;
   }
 
-  .lg\:w-1\/2 {
-    width: 50%;
-  }
-
-  .lg\:w-3\/4 {
-    width: 75%;
+  .lg\:h-20 {
+    height: 5rem;
   }
 
   .lg\:w-1\/3 {
     width: 33.333333%;
   }
 
+  .lg\:w-3\/4 {
+    width: 75%;
+  }
+
+  .lg\:w-40 {
+    width: 10rem;
+  }
+
   .lg\:w-11\/12 {
     width: 91.666667%;
   }
 
-  .lg\:flex-none {
-    flex: none;
+  .lg\:w-10\/12 {
+    width: 83.333333%;
   }
 
-  .lg\:flex-shrink-0 {
-    flex-shrink: 0;
+  .lg\:w-1\/2 {
+    width: 50%;
   }
 
-  .lg\:flex-grow-0 {
-    flex-grow: 0;
+  .lg\:w-60 {
+    width: 15rem;
+  }
+
+  .lg\:w-24 {
+    width: 6rem;
+  }
+
+  .lg\:w-20 {
+    width: 5rem;
+  }
+
+  .lg\:w-32 {
+    width: 8rem;
+  }
+
+  .lg\:w-28 {
+    width: 7rem;
   }
 
   .lg\:cursor-pointer {
     cursor: pointer;
   }
 
-  .lg\:hover\:scale-110:hover {
-    --tw-scale-x: 1.1;
-    --tw-scale-y: 1.1;
-    transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+  .lg\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .lg\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .lg\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+
+  .lg\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 
   .lg\:hover\:scale-105:hover {
@@ -1261,11 +1350,6 @@ body {
   .lg\:hover\:bg-gray-300:hover {
     --tw-bg-opacity: 1;
     background-color: rgb(209 213 219 / var(--tw-bg-opacity));
-  }
-
-  .lg\:hover\:text-lg:hover {
-    font-size: 1.125rem;
-    line-height: 1.75rem;
   }
 
   .group:hover .lg\:group-hover\:scale-110 {

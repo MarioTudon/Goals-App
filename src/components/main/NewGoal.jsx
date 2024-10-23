@@ -92,7 +92,7 @@ function NewGoal({ sendDataToMain }) {
 
     return (
         <>
-            <div className="w-5/6 top-0 h-full z-30 mx-auto lg:w-1/3">
+            <div className="w-5/6 top-0 h-full mx-auto lg:w-1/3">
                     <div className="bg-gray-400 w-full flex justify-center mx-auto px-4 py-2 rounded-t-xl uppercase font-bold text-gray-100  mt-4">
                         Create your goal
                     </div>
