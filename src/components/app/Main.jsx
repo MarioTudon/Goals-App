@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import GoalsList from '../main/GoalsList'
 import NewGoal from '../main/NewGoal'
 import SideMenu from '../main/SideMenu'
+import { Route, Router, Routes } from 'react-router'
+import App from '../../App'
 
 function Main() {
     const [section, setSection] = useState('goalsList');
@@ -55,15 +57,15 @@ function Main() {
         }
     }
 
-    function handleDataFromSideMenu(sectionID) {
-        setSection(sectionID);
-    }
-
     return (
         <>
             <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
-                <SideMenu sendDataToMain={handleDataFromSideMenu} />
-                {sections[section]}
+                <SideMenu />
+                <Routes>
+                    <Route index element={<GoalsList />} />
+                    <Route path='/Goals-List' element={<GoalsList />} />
+                    <Route path='/New-Goal' element={<NewGoal />} />
+                </Routes>
             </main>
         </>
     )

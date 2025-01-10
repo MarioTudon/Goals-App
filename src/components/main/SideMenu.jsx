@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import SideMenuButton from '../side-menu/SideMenuButton'
 
-function SideMenu({ sendDataToMain }) {
+function SideMenu() {
     const [arrowRotation, setArrowRotation] = useState("rotate-0");
     const [arrowDirection, setArrowDirection] = useState("rightBounce");
     const [asideWidth, setAsideWidth] = useState("w-0");
@@ -26,19 +26,14 @@ function SideMenu({ sendDataToMain }) {
 
     }
 
-    function handleDataFromSideMenuButton(id) {
-        sendDataToMain(id);
-        hideMenu();
-    }
-
     return (
         <>
             <aside className={`flex flex-col justify-start text-gray-700 bg-gray-100 h-full ${asideWidth} lg:w-60 lg:relative transition-all duration-slow shadow-md shadow-gray-400 absolute z-10`}>
                 <SideMenuButton
                     text={'Goals List'}
-                    sendDataToSideMenu={handleDataFromSideMenuButton}
                     sectionID={"goalsList"}
                     autoFocus
+                    url='/Goals-App/Goals-List'
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3">
                         <path d="M6 15.8L7.14286 17L10 14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />
@@ -50,8 +45,8 @@ function SideMenu({ sendDataToMain }) {
                 </SideMenuButton>
                 <SideMenuButton
                     text={'New Goal'}
-                    sendDataToSideMenu={handleDataFromSideMenuButton}
                     sectionID={"newGoal"}
+                    url='/Goals-App/New-Goal'
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3">
                         <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" strokeWidth="1.5" strokeLinecap="round" className='stroke-gray-700' />

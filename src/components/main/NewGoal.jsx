@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "../shared/Button";
+import { Link, useNavigate } from "react-router";
 
 const icons = [
     // 1. Salud y bienestar:
@@ -54,7 +55,7 @@ const frequencyUnits = [
     { value: "year", content: "Year", key: 3 },
 ]
 
-function NewGoal({ sendDataToMain }) {
+function NewGoal() {
 
     const [form, setForm] = useState({
         goal: "",
@@ -64,6 +65,8 @@ function NewGoal({ sendDataToMain }) {
         icon: "🏃‍♂️",
         id: ""
     })
+
+    const [formatIsCorrect, setFormatIsCorrect] = useState();
 
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
@@ -76,7 +79,8 @@ function NewGoal({ sendDataToMain }) {
     function addGoal() {
         if (!verifyAndFormatForm()) return;
         form.id = Math.random() * 1000;
-        sendDataToMain(form);
+        useNavigate
+        console.log(form);
     }
 
     function verifyAndFormatForm() {
@@ -135,6 +139,7 @@ function NewGoal({ sendDataToMain }) {
                         styles={"bg-gray-200"}
                         onClick={addGoal}
                     />
+                    {formatIsCorrect && <Link to='/Goals-App/Goals-List' />}
                 </div>
             </div>
         </>
