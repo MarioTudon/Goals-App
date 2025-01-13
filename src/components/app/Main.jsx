@@ -10,7 +10,7 @@ function Main() {
                 <SideMenu />
                 <Routes>
                     <Route index element={<GoalsList />} />
-                    <Route path='/Goals-List' element={<GoalsList />} />
+                    <Route path='/Goals-List/*' element={<GoalsList />} />
                     <Route path='/New-Goal' element={<NewGoal />} />
                 </Routes>
             </main>

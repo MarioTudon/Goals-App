@@ -65,8 +65,8 @@ function NewGoal() {
         icon: "🏃‍♂️",
         id: ""
     })
-
     const [formatIsCorrect, setFormatIsCorrect] = useState();
+    const navigate = useNavigate();
 
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
@@ -77,9 +77,9 @@ function NewGoal() {
     }
 
     function addGoal() {
-        if (!verifyAndFormatForm()) return;
+        navigate("/Goals-App/Goals-List")
+        /*if (!verifyAndFormatForm()) return;*/
         form.id = Math.random() * 1000;
-        useNavigate
         console.log(form);
     }
 
