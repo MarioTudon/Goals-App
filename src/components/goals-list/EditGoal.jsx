@@ -99,7 +99,7 @@ function EditGoal({ count, resetCount }) {
 
     return (
         <>
-            <div className="fixed w-full top-0 h-full bg-gray-400-transparent z-30">
+            <div className="fixed w-full top-0 h-full bg-gray-400-transparent z-50">
                 <div className="w-5/6 flex flex-col top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 fixed lg:w-1/3">
                     <div className="bg-gray-400 w-full flex justify-center mx-auto px-4 py-2 rounded-t-xl uppercase font-bold text-gray-100">
                         Edit your goal

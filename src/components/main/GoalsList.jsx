@@ -1,20 +1,39 @@
-    import { useEffect, useRef, useState } from 'react';
+    import { useContext, useEffect, useRef, useState } from 'react';
     import GoalCard from '../goals-list/GoalCard'
     import EditGoal from '../goals-list/EditGoal';
     import { Route, Routes, useNavigate } from 'react-router';
+    import Context from '../../context';
 
     function GoalsList() {
         const goals = [
             {
                 goal: "Practicar programación",
-                frequency: 5,
+                frequency: 20,
                 frequencyUnit: "Month",
-                target: 5,
-                icon: "🧠",
+                target: 240,
+                icon: "👨‍💻",
                 id: 1
+            },
+            {
+                goal: "Hacer ejercicio",
+                frequency: 5,
+                frequencyUnit: "Week",
+                target: 50,
+                icon: "🏃‍♂️",
+                id: 2
+            },
+            {
+                goal: "Leer un libro",
+                frequency: 1,
+                frequencyUnit: "Month",
+                target: 8,
+                icon: "📖",
+                id: 3
             },
         ]
         const navigate = useNavigate();
+        const test = useContext(Context);
+        console.log(test);
 
         return (
             <>
