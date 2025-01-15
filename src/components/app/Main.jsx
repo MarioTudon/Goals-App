@@ -9,7 +9,7 @@ function Main() {
             <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
                 <SideMenu />
                 <Routes>
-                    <Route index element={<GoalsList />} />
+                    <Route path="/*" element={<GoalsList />} />
                     <Route path='/Goals-List/*' element={<GoalsList />} />
                     <Route path='/New-Goal' element={<NewGoal />} />
                 </Routes>

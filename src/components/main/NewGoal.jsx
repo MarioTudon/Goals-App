@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Button from "../shared/Button";
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
+import { Context } from "../../context/Context";
 
 const icons = [
     // 1. Salud y bienestar:
@@ -49,38 +50,27 @@ const icons = [
 ]
 
 const frequencyUnits = [
-    { value: "day", content: "Day", key: 0 },
-    { value: "week", content: "Week", key: 1 },
-    { value: "month", content: "Month", key: 2 },
-    { value: "year", content: "Year", key: 3 },
+    "Day",
+    "Week",
+    "Month",
+    "Year",
 ]
 
 function NewGoal() {
 
     const [form, setForm] = useState({
         goal: "",
-        frequency: "",
+        frequency: 0,
         frequencyUnit: "day",
         target: "",
         icon: "🏃‍♂️",
-        id: ""
+        id: 0
     })
-    const [formatIsCorrect, setFormatIsCorrect] = useState();
     const navigate = useNavigate();
+    const [state, dispatch] = useContext(Context);
 
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
-    }
-
-    function removeLeadingZerosRegex(str) {
-        return str.replace(/^0+(?=\d)/, '');
-    }
-
-    function addGoal() {
-        navigate("/Goals-App/Goals-List")
-        /*if (!verifyAndFormatForm()) return;*/
-        form.id = Math.random() * 1000;
-        console.log(form);
     }
 
     function verifyAndFormatForm() {
@@ -92,6 +82,17 @@ function NewGoal() {
         form.frequency = removeLeadingZerosRegex(form.frequency);
         form.target = removeLeadingZerosRegex(form.target);
         return true;
+    }
+
+    function removeLeadingZerosRegex(str) {
+        return str.toString().replace(/^0+(?=\d)/, '');
+    }
+
+    function addGoal() {
+        if (!verifyAndFormatForm()) return;
+        navigate("/Goals-App/Goals-List");
+        form.id = Math.random() * 1000 + Date.now();
+        dispatch({ type: 'create', goal: form });
     }
 
     return (
@@ -112,7 +113,7 @@ function NewGoal() {
                             <select name="frequency-unit" id="frequency-unit" className="w-fit py-2 px-3 rounded-full bg-gray-100 shadow-inner appearance-none shadow-gray-400" onChange={e => handleChange(e, 'frequencyUnit')}>
                                 {
                                     frequencyUnits.map(frequencyUnit =>
-                                        <option key={frequencyUnit.key} value={frequencyUnit.value}>{frequencyUnit.content}</option>
+                                        <option value={frequencyUnit} key={frequencyUnit} >{frequencyUnit}</option>
                                     )
                                 }
                             </select>
@@ -139,7 +140,6 @@ function NewGoal() {
                         styles={"bg-gray-200"}
                         onClick={addGoal}
                     />
-                    {formatIsCorrect && <Link to='/Goals-App/Goals-List' />}
                 </div>
             </div>
         </>

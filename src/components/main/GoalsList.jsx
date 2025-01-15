@@ -1,65 +1,38 @@
-    import { useContext, useEffect, useRef, useState } from 'react';
-    import GoalCard from '../goals-list/GoalCard'
-    import EditGoal from '../goals-list/EditGoal';
-    import { Route, Routes, useNavigate } from 'react-router';
-    import Context from '../../context';
+import GoalCard from '../goals-list/GoalCard'
+import EditGoal from '../goals-list/EditGoal';
+import { Route, Routes, useNavigate } from 'react-router';
+import { useContext } from 'react';
+import { Context } from '../../context/Context';
 
-    function GoalsList() {
-        const goals = [
-            {
-                goal: "Practicar programación",
-                frequency: 20,
-                frequencyUnit: "Month",
-                target: 240,
-                icon: "👨‍💻",
-                id: 1
-            },
-            {
-                goal: "Hacer ejercicio",
-                frequency: 5,
-                frequencyUnit: "Week",
-                target: 50,
-                icon: "🏃‍♂️",
-                id: 2
-            },
-            {
-                goal: "Leer un libro",
-                frequency: 1,
-                frequencyUnit: "Month",
-                target: 8,
-                icon: "📖",
-                id: 3
-            },
-        ]
-        const navigate = useNavigate();
-        const test = useContext(Context);
-        console.log(test);
+function GoalsList() {
+    const navigate = useNavigate();
+    const [state, dispatch] = useContext(Context);
 
-        return (
-            <>
-                <div className='w-11/12 mx-auto h-full lg:w-1/2'>
-                    <ul className='w-full h-full flex flex-col lg:mt-0 overflow-y-auto overflow-x-clip lg:px-8' onClick={()=>{navigate('/Goals-App/Goals-List/Edit-Goal')}}>
-                        {
-                            goals.map(goal =>
-                                <li key={goal.id} className='w-full my-2 flex justify-center last:mb-4 first:mt-4'>
-                                    <GoalCard
-                                        goal={goal.goal}
-                                        frequency={goal.frequency}
-                                        frequencyUnit={goal.frequencyUnit}
-                                        target={goal.target}
-                                        icon={goal.icon}
-                                        id={goal.id}
-                                    />
-                                </li>
-                            )
-                        }
-                    </ul>
-                </div>
-                <Routes>
-                    <Route path='/Edit-Goal' element={<EditGoal />} />
-                </Routes>
-            </>
-        )
-    }
+    return (
+        <>
+            <div className='w-11/12 mx-auto h-full lg:w-1/2'>
+                <ul className='w-full h-full flex flex-col lg:mt-0 overflow-y-auto overflow-x-clip lg:px-8'>
+                    {
+                        state.order.map(id =>
+                            <li key={id} className='w-full my-2 flex justify-center last:mb-4 first:mt-4' onClick={() => { navigate(`/Goals-App/Goals-List/${id}`) }}>
+                                <GoalCard
+                                    goal={state.objects[id].goal}
+                                    frequency={state.objects[id].frequency}
+                                    frequencyUnit={state.objects[id].frequencyUnit}
+                                    target={state.objects[id].target}
+                                    icon={state.objects[id].icon}
+                                    id={state.objects[id].id}
+                                />
+                            </li>
+                        )
+                    }
+                </ul>
+            </div>
+            <Routes>
+                <Route path='/:id' element={<EditGoal />} />
+            </Routes>
+        </>
+    )
+}
 
-    export default GoalsList;
+export default GoalsList;

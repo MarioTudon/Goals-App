@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Button from "../shared/Button"
 
-function GoalCard({ goal, frequency, frequencyUnit, target, icon, id}) {
+function GoalCard({ goal, frequency, frequencyUnit, target, icon}) {
     const [percentage, setPercentage] = useState('0');
     const [count, setCount] = useState(0);
 
