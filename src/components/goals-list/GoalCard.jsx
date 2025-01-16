@@ -1,9 +1,11 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Button from "../shared/Button"
+import { Context } from "../../context/Context";
+import { useParams } from "react-router";
 
-function GoalCard({ goal, frequency, frequencyUnit, target, icon}) {
-    const [percentage, setPercentage] = useState('0');
-    const [count, setCount] = useState(0);
+function GoalCard({ goal, frequency, frequencyUnit, target, icon, id, count}) {
+    const [percentage, setPercentage] = useState(0);
+    const [state,dispatch] = useContext(Context);
 
     useEffect(() => {
         setPercentage(`${count / target * 100}`);
@@ -12,7 +14,7 @@ function GoalCard({ goal, frequency, frequencyUnit, target, icon}) {
     function completeGoal(e) {
         e.stopPropagation();
         if (percentage < 100) {
-            setCount(newCount => newCount + 1);
+            dispatch({type:'increaseCount', id: id});
         }
     }
 

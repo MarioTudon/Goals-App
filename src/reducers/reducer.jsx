@@ -26,21 +26,53 @@ function reducer(state, action) {
         };
         case 'update': {
             const id = action.goal.id;
-            state.objects[id] = {
-                ...state.objects[id],
-                ...action.goal
-            };
-            const newState = { ...state };
+            const newState = { ...state,
+                objects: {
+                    ...state.objects,
+                    [id]: {
+                        ...state.objects[id],
+                        ...action.goal
+                    }
+                }
+             };
             return newState;
         };
         case 'delete': {
             const id = action.id;
-            const newState = { 
+            const newState = {
                 ...state,
                 order: state.order.filter(item => item !== id),
                 objects: { ...state.objects }
             };
             delete newState.objects[id];
+            return newState;
+        }
+        case 'increaseCount': {
+            const id = action.id;
+            const newState = {
+                ...state,
+                objects: {
+                    ...state.objects,
+                    [id]: {
+                        ...state.objects[id],
+                        count: state.objects[id].count + 1
+                    }
+                }
+            };
+            return newState;
+        }
+        case 'resetCount': {
+            const id = action.id;
+            const newState = {
+                ...state,
+                objects: {
+                    ...state.objects,
+                    [id]: {
+                        ...state.objects[id],
+                        count: 0
+                    }
+                }
+            };
             return newState;
         }
     }

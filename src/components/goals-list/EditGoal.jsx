@@ -73,7 +73,7 @@ function EditGoal() {
     useEffect(() => {
         setForm(state.objects[id]);
     }, [id]);
-    console.log(state.objects[id].count);
+
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
     }
@@ -81,7 +81,7 @@ function EditGoal() {
     function verifyAndFormatForm() {
         if (form.frequency !== "" && (form.frequency < 1 || form.frequency > 99)) { alert("Frequency must be between 1 and 99"); return false; }
         if (form.target !== "" && (form.target < 1 || form.target > 99)) { alert("Target must be between 1 and 99"); return false; }
-        // if (form.target <= count && form.target !== "") { alert("Target should be greater than count"); return false; }
+        if (form.target <= state.objects[id].count && form.target !== "") { alert("Target should be greater than count"); return false; }
         form.frequency = removeLeadingZerosRegex(form.frequency);
         form.target = removeLeadingZerosRegex(form.target);
         return true;
@@ -91,15 +91,20 @@ function EditGoal() {
         return str.toString().replace(/^0+(?=\d)/, '');
     }
 
+    function resetCount() {
+        dispatch({ type: 'resetCount', id: state.objects[id].id });
+        navigate("/Goals-App/Goals-List");
+    }
+
     function updateGoal() {
         if (!verifyAndFormatForm()) return;
-        navigate("/Goals-App/Goals-List");
         dispatch({ type: "update", goal: form });
+        navigate("/Goals-App/Goals-List");
     }
 
     function deleteGoal() {
-        navigate("/Goals-App/Goals-List");
         dispatch({ type: "delete", id: state.objects[id].id });
+        navigate("/Goals-App/Goals-List");
     }
 
     return state.order.includes(Number(id)) && (
@@ -146,6 +151,7 @@ function EditGoal() {
                         <Button
                             label={"Reset count"}
                             styles={"bg-gray-700 text-gray-200 mx-auto"}
+                            onClick={resetCount}
                         />
                     </div>
                     <div className="bg-gray-400 w-full flex justify-between mx-auto px-4 py-2 rounded-b-xl">

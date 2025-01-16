@@ -22,6 +22,7 @@ function GoalsList() {
                                     target={state.objects[id].target}
                                     icon={state.objects[id].icon}
                                     id={state.objects[id].id}
+                                    count={state.objects[id].count}
                                 />
                             </li>
                         )
