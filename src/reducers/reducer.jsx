@@ -9,10 +9,10 @@ function reducer(state, action) {
         case 'create': {
             const id = Math.random() * 1000 + Date.now();
             const newState = {
-                order: [...state.order, id],
+                order: Array.isArray(state.order) ? [...state.order, id] : [id],
                 objects: {
                     ...state.objects,
-                    [id]: {...action.goal, count:0, id:id}
+                    [id]: { ...action.goal, count: 0, id: id }
                 }
             };
             localStorage.setItem('goals', JSON.stringify(newState));
@@ -29,7 +29,8 @@ function reducer(state, action) {
         };
         case 'update': {
             const id = action.goal.id;
-            const newState = { ...state,
+            const newState = {
+                ...state,
                 objects: {
                     ...state.objects,
                     [id]: {
@@ -37,8 +38,8 @@ function reducer(state, action) {
                         ...action.goal
                     }
                 }
-             };
-             localStorage.setItem('goals', JSON.stringify(newState));
+            };
+            localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         };
         case 'delete': {
