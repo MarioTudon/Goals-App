@@ -81,7 +81,7 @@ function EditGoal() {
     function verifyAndFormatForm() {
         if (form.frequency !== "" && (form.frequency < 1 || form.frequency > 99)) { alert("Frequency must be between 1 and 99"); return false; }
         if (form.target !== "" && (form.target < 1 || form.target > 99)) { alert("Target must be between 1 and 99"); return false; }
-        if (form.target <= count && form.target !== "") { alert("Target should be greater than count"); return false; }
+        // if (form.target <= count && form.target !== "") { alert("Target should be greater than count"); return false; }
         form.frequency = removeLeadingZerosRegex(form.frequency);
         form.target = removeLeadingZerosRegex(form.target);
         return true;
