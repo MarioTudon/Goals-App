@@ -1,12 +1,22 @@
 import GoalCard from '../goals-list/GoalCard'
 import EditGoal from '../goals-list/EditGoal';
 import { Route, Routes, useNavigate } from 'react-router';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { Context } from '../../context/Context';
+import { requestGoals } from '../../services/requests';
 
 function GoalsList() {
     const navigate = useNavigate();
     const [state, dispatch] = useContext(Context);
+
+    useEffect(() => {
+        const fetchGoals = async () => {
+            const goals = await requestGoals();
+            dispatch({ type: 'read', goals: goals });
+        };
+    
+        fetchGoals();
+    }, []);
 
     return (
         <>

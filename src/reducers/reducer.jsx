@@ -1,4 +1,5 @@
 const memory = localStorage.getItem('goals');
+
 export const initialState = memory ? JSON.parse(memory) : {
     order: [],
     objects: {}
@@ -82,6 +83,9 @@ function reducer(state, action) {
             };
             localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
+        }
+        default: {
+            throw new Error('The action doesn\'t exist');
         }
     }
 }
