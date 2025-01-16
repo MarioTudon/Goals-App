@@ -73,7 +73,7 @@ function EditGoal() {
     useEffect(() => {
         setForm(state.objects[id]);
     }, [id]);
-
+    console.log(state.objects[id].count);
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
     }

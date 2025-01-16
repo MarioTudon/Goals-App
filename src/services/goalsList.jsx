@@ -15,7 +15,7 @@ const goalsList = [
         target: 50,
         icon: "🏃‍♂️",
         id: 2,
-        count: 0
+        count: 3
     },
     {
         goal: "Leer un libro",
@@ -24,7 +24,7 @@ const goalsList = [
         target: 8,
         icon: "📖",
         id: 3,
-        count: 0
+        count: 6
     },
 ]
 
