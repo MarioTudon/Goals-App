@@ -34,6 +34,7 @@ function SideMenu() {
                     sectionID={"goalsList"}
                     autoFocus
                     url='/Goals-App/Goals-List'
+                    onClick={hideMenu}
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3">
                         <path d="M6 15.8L7.14286 17L10 14" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className='stroke-gray-700' />
@@ -47,6 +48,7 @@ function SideMenu() {
                     text={'New Goal'}
                     sectionID={"newGoal"}
                     url='/Goals-App/New-Goal'
+                    onClick={hideMenu}
                 >
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="min-w-6 min-h-6 w-6 h-6 ml-4 mr-3">
                         <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" strokeWidth="1.5" strokeLinecap="round" className='stroke-gray-700' />

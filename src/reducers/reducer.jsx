@@ -6,12 +6,12 @@ export const initialState = {
 function reducer(state, action) {
     switch (action.type) {
         case 'create': {
-            const id = action.goal.id;
+            const id = Math.random() * 1000 + Date.now();
             const newState = {
                 order: [...state.order, id],
                 objects: {
                     ...state.objects,
-                    [id]: action.goal
+                    [id]: {...action.goal, count:0, id:id}
                 }
             };
             return newState

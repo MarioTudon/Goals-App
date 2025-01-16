@@ -91,7 +91,6 @@ function NewGoal() {
     function addGoal() {
         if (!verifyAndFormatForm()) return;
         navigate("/Goals-App/Goals-List");
-        form.id = Math.random() * 1000 + Date.now();
         dispatch({ type: 'create', goal: form });
     }
 
