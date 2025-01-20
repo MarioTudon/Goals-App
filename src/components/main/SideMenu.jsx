@@ -1,14 +1,14 @@
 import { useRef, useState } from 'react';
 import SideMenuButton from '../side-menu/SideMenuButton'
 
-function SideMenu() {
+function SideMenu({ isAuthenticated }) {
     const [arrowRotation, setArrowRotation] = useState("rotate-0");
     const [arrowDirection, setArrowDirection] = useState("rightBounce");
     const [asideWidth, setAsideWidth] = useState("w-0");
     const [isHided, setIsHided] = useState(true);
     const screen = useRef(null);
     const screenChild = useRef(null);
-
+    console.log(isAuthenticated);
     function hideMenu(e) {
         const condition = e ? isHided && e.target !== screen.current && e.target !== screenChild.current : isHided;
         if (condition) {
@@ -26,7 +26,7 @@ function SideMenu() {
 
     }
 
-    return (
+    return isAuthenticated && (
         <>
             <aside className={`flex flex-col justify-start text-gray-700 bg-gray-100 h-full ${asideWidth} lg:w-60 lg:relative transition-all duration-slow shadow-md shadow-gray-400 absolute z-10`}>
                 <SideMenuButton
