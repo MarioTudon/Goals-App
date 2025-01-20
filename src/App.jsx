@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <div className='flex flex-col h-screen overflow-hidden' >
-        <Header />
+        <Header isAuthenticated={true}/>
         <Main />
         <Footer />
       </div>

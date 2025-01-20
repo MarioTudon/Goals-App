@@ -22,14 +22,14 @@ function Main() {
     return (
         <>
             <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
-            <SideMenu isAuthenticated={false}/>
+            <SideMenu isAuthenticated={true}/>
                 <Routes>
                     {/*Rutas publicas*/}
                     <Route path='/Access' element={<Access />} />
                     <Route path='/Register' element={<Register />} />
                     {/*Rutas privadas*/}
-                    <Route path='/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={false} />} />
-                    <Route path='/Goals-List/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={false} />} />
+                    <Route path='/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={true} />} />
+                    <Route path='/Goals-List/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={true} />} />
                     <Route path='/New-Goal' element={<ProtectedRoute element={NewGoal} isAuthenticated={true} />} />
                 </Routes>
             </main>
