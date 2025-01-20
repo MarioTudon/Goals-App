@@ -1,6 +1,6 @@
-const memory = localStorage.getItem('goals');
+//const memory = localStorage.getItem('goals');
 
-export const initialState = memory ? JSON.parse(memory) : {
+export const initialState = /*memory ? JSON.parse(memory) : */{
     order: [],
     objects: {}
 }
@@ -8,7 +8,7 @@ export const initialState = memory ? JSON.parse(memory) : {
 function reducer(state, action) {
     switch (action.type) {
         case 'create': {
-            const id = Math.random() * 1000 + Date.now();
+            const id = action.goal.id;//Math.random() * 1000 + Date.now();
             const newState = {
                 order: Array.isArray(state.order) ? [...state.order, id] : [id],
                 objects: {
@@ -16,7 +16,7 @@ function reducer(state, action) {
                     [id]: { ...action.goal, count: 0, id: id }
                 }
             };
-            localStorage.setItem('goals', JSON.stringify(newState));
+            //localStorage.setItem('goals', JSON.stringify(newState));
             return newState
         };
         case 'read': {
@@ -25,7 +25,7 @@ function reducer(state, action) {
                 order: goals.map(goal => goal.id),
                 objects: goals.reduce((object, goal) => ({ ...object, [goal.id]: goal }), {})
             };
-            localStorage.setItem('goals', JSON.stringify(newState));
+            //localStorage.setItem('goals', JSON.stringify(newState));
             return newState
         };
         case 'update': {
@@ -40,7 +40,7 @@ function reducer(state, action) {
                     }
                 }
             };
-            localStorage.setItem('goals', JSON.stringify(newState));
+            //localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         };
         case 'delete': {
@@ -51,7 +51,7 @@ function reducer(state, action) {
                 objects: { ...state.objects }
             };
             delete newState.objects[id];
-            localStorage.setItem('goals', JSON.stringify(newState));
+            //localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
         case 'increaseCount': {
@@ -66,7 +66,7 @@ function reducer(state, action) {
                     }
                 }
             };
-            localStorage.setItem('goals', JSON.stringify(newState));
+            //localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
         case 'resetCount': {
@@ -81,7 +81,7 @@ function reducer(state, action) {
                     }
                 }
             };
-            localStorage.setItem('goals', JSON.stringify(newState));
+            //localStorage.setItem('goals', JSON.stringify(newState));
             return newState;
         }
         default: {

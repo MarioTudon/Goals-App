@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Button from "../shared/Button";
 import { useNavigate, useParams } from "react-router";
 import { Context } from "../../context/Context";
+import { removeGoal, updateGoal } from "../../services/requests";
 
 const icons = [
     // 1. Salud y bienestar:
@@ -77,7 +78,6 @@ function EditGoal() {
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
     }
-
     function verifyAndFormatForm() {
         if (form.frequency !== "" && (form.frequency < 1 || form.frequency > 99)) { alert("Frequency must be between 1 and 99"); return false; }
         if (form.target !== "" && (form.target < 1 || form.target > 99)) { alert("Target must be between 1 and 99"); return false; }
@@ -96,14 +96,17 @@ function EditGoal() {
         navigate("/Goals-App/Goals-List");
     }
 
-    function updateGoal() {
+    async function update() {
         if (!verifyAndFormatForm()) return;
-        dispatch({ type: "update", goal: form });
+        const newGoal = await updateGoal();
+        console.log(newGoal);
+        dispatch({ type: "update", goal: newGoal });
         navigate("/Goals-App/Goals-List");
     }
 
-    function deleteGoal() {
-        dispatch({ type: "delete", id: state.objects[id].id });
+    async function remove() {
+        const idToRemove = await removeGoal();
+        dispatch({ type: "delete", id: idToRemove });
         navigate("/Goals-App/Goals-List");
     }
 
@@ -163,12 +166,12 @@ function EditGoal() {
                         <Button
                             label={"Delete"}
                             styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"}
-                            onClick={deleteGoal}
+                            onClick={remove}
                         />
                         <Button
                             label={"Confirm"}
                             styles={"bg-gray-200"}
-                            onClick={updateGoal}
+                            onClick={update}
                         />
                     </div>
                 </div>

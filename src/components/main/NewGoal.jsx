@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import Button from "../shared/Button";
 import { useNavigate } from "react-router";
 import { Context } from "../../context/Context";
+import { createGoal } from "../../services/requests";
 
 const icons = [
     // 1. Salud y bienestar:
@@ -88,10 +89,11 @@ function NewGoal() {
         return str.toString().replace(/^0+(?=\d)/, '');
     }
 
-    function addGoal() {
+    async function create() {
         if (!verifyAndFormatForm()) return;
+        const newGoal = await createGoal();
+        dispatch({ type: 'create', goal: newGoal });
         navigate("/Goals-App/Goals-List");
-        dispatch({ type: 'create', goal: form });
     }
 
     return (
@@ -137,7 +139,7 @@ function NewGoal() {
                     <Button
                         label={"Add"}
                         styles={"bg-gray-200"}
-                        onClick={addGoal}
+                        onClick={create}
                     />
                 </div>
             </div>
