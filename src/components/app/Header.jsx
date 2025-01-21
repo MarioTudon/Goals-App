@@ -19,7 +19,7 @@ function Header({ isAuthenticated }) {
                                 <img src={accountIcon} alt='User Icon' className='w-8 h-8 p-1 rounded-full hover:scale-125 transition duration-medium' />
                             </Link>)
                             :
-                            (<Link to={'/Goals-App/Access'}>
+                            (<Link to={'/Goals-App/Login'}>
                                 <img src={accountIcon} alt='Account Icon' className='w-8 h-8 p-1 rounded-full hover:scale-125 transition duration-medium' />
                             </Link>)
                     }

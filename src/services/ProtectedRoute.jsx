@@ -6,7 +6,7 @@ const ProtectedRoute = ({ element: Element, isAuthenticated }) => {
 
   useEffect(() => {
     if (!isAuthenticated) {
-      navigate('/Goals-App/Access');
+      navigate('/Goals-App/Login');
     }
   }, [isAuthenticated, navigate]);
 

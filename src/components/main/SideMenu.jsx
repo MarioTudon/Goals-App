@@ -8,7 +8,6 @@ function SideMenu({ isAuthenticated }) {
     const [isHided, setIsHided] = useState(true);
     const screen = useRef(null);
     const screenChild = useRef(null);
-    console.log(isAuthenticated);
     function hideMenu(e) {
         const condition = e ? isHided && e.target !== screen.current && e.target !== screenChild.current : isHided;
         if (condition) {

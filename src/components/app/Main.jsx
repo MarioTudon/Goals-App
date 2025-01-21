@@ -5,8 +5,8 @@ import SideMenu from '../main/SideMenu'
 import { Route, Routes } from 'react-router'
 import { requestGoals } from '../../services/requests';
 import { Context } from '../../context/Context';
-import Access from '../main/Access';
-import Register from '../main/Register';
+import Login from '../main/Login';
+import Signup from '../main/Signup';
 import ProtectedRoute from '../../services/ProtectedRoute';
 
 function Main() {
@@ -22,15 +22,15 @@ function Main() {
     return (
         <>
             <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
-            <SideMenu isAuthenticated={true}/>
+            <SideMenu isAuthenticated={false}/>
                 <Routes>
                     {/*Rutas publicas*/}
-                    <Route path='/Access' element={<Access />} />
-                    <Route path='/Register' element={<Register />} />
+                    <Route path='/Login' element={<Login />} />
+                    <Route path='/Signup' element={<Signup />} />
                     {/*Rutas privadas*/}
-                    <Route path='/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={true} />} />
-                    <Route path='/Goals-List/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={true} />} />
-                    <Route path='/New-Goal' element={<ProtectedRoute element={NewGoal} isAuthenticated={true} />} />
+                    <Route path='/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={false} />} />
+                    <Route path='/Goals-List/*' element={<ProtectedRoute element={GoalsList} isAuthenticated={false} />} />
+                    <Route path='/New-Goal' element={<ProtectedRoute element={NewGoal} isAuthenticated={false} />} />
                 </Routes>
             </main>
         </>

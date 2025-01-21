@@ -165,7 +165,7 @@ function EditGoal() {
                         />
                         <Button
                             label={"Delete"}
-                            styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"}
+                            styles={"bg-red-100 text-red-700 outline outline-1 outline-red-700"}
                             onClick={remove}
                         />
                         <Button
