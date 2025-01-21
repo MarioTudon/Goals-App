@@ -1,12 +1,12 @@
 import GoalCard from '../goals-list/GoalCard'
 import EditGoal from '../goals-list/EditGoal';
 import { Route, Routes, useNavigate } from 'react-router';
-import { useContext, useEffect } from 'react';
-import { Context } from '../../context/Context';
+import { useContext } from 'react';
+import { GoalsContext } from '../../context/GoalsContext';
 
 function GoalsList() {
     const navigate = useNavigate();
-    const [state] = useContext(Context);
+    const [state] = useContext(GoalsContext);
     
     return (
         <>

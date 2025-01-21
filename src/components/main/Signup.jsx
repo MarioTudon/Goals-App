@@ -13,6 +13,10 @@ function Signup() {
         setForm(state => ({ ...state, [prop]: e.target.value }));
     }
 
+    function signup() {
+        console.log(form);
+    }
+
     return (
         <>
             <div className="w-5/6 top-0 h-full mx-auto lg:w-1/3">
@@ -28,11 +32,16 @@ function Signup() {
                         <div className="font-bold my-2">Password</div>
                         <input type="password" name="password" id="password" placeholder="Enter your password" className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'password')} />
                     </label>
+                    <label className="flex flex-col">
+                        <div className="font-bold my-2">Confirm your password</div>
+                        <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Enter your password again" className="w-full py-2 px-3 rounded-full bg-gray-100 shadow-inner shadow-gray-400" onChange={e => handleChange(e, 'password')} />
+                    </label>
                 </form>
                 <div className="bg-gray-400 w-full flex justify-between mx-auto px-4 py-2 rounded-b-xl">
                     <Button
                         label={"Create"}
                         styles={"bg-gray-200"}
+                        onClick={signup}
                     />
                     <Button
                         label={"Cancel"}

@@ -1,11 +1,10 @@
 import { useContext, useEffect, useState } from "react"
 import Button from "../shared/Button"
-import { Context } from "../../context/Context";
-import { useParams } from "react-router";
+import { GoalsContext } from "../../context/GoalsContext";
 
 function GoalCard({ goal, frequency, frequencyUnit, target, icon, id, count}) {
     const [percentage, setPercentage] = useState(0);
-    const [state,dispatch] = useContext(Context);
+    const [,dispatch] = useContext(GoalsContext);
 
     useEffect(() => {
         setPercentage(`${count / target * 100}`);

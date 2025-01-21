@@ -5,7 +5,7 @@ export const initialState = /*memory ? JSON.parse(memory) : */{
     objects: {}
 }
 
-function reducer(state, action) {
+function goalsReducer(state, action) {
     switch (action.type) {
         case 'create': {
             const id = action.goal.id;//Math.random() * 1000 + Date.now();
@@ -90,4 +90,4 @@ function reducer(state, action) {
     }
 }
 
-export default reducer;
+export default goalsReducer;

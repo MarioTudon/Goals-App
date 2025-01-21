@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import AsideButton from '../aside/AsideButton'
+import { useLocation } from 'react-router';
 
 function Aside({ isAuthenticated }) {
     const [arrowRotation, setArrowRotation] = useState("rotate-0");
@@ -8,6 +9,9 @@ function Aside({ isAuthenticated }) {
     const [isHided, setIsHided] = useState(true);
     const screen = useRef(null);
     const screenChild = useRef(null);
+    const location = useLocation();
+
+
     function hideMenu(e) {
         const condition = e ? isHided && e.target !== screen.current && e.target !== screenChild.current : isHided;
         if (condition) {
@@ -25,7 +29,7 @@ function Aside({ isAuthenticated }) {
 
     }
 
-    return isAuthenticated && (
+    return isAuthenticated && location.pathname !== '/Goals-App/Login' && location.pathname !== '/Goals-App/Signup' && (
         <>
             <aside className={`flex flex-col justify-start text-gray-700 bg-gray-100 h-full ${asideWidth} lg:w-60 lg:relative transition-all duration-slow shadow-md shadow-gray-400 absolute z-10`}>
                 <AsideButton

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import Button from "../shared/Button";
 import { useNavigate, useParams } from "react-router";
-import { Context } from "../../context/Context";
+import { GoalsContext } from "../../context/GoalsContext";
 import { removeGoal, updateGoal } from "../../services/requests";
 
 const icons = [
@@ -68,7 +68,7 @@ function EditGoal() {
         id: 0
     })
     const navigate = useNavigate();
-    const [state, dispatch] = useContext(Context);
+    const [state, dispatch] = useContext(GoalsContext);
     const { id } = useParams();
 
     useEffect(() => {
@@ -99,7 +99,6 @@ function EditGoal() {
     async function update() {
         if (!verifyAndFormatForm()) return;
         const newGoal = await updateGoal();
-        console.log(newGoal);
         dispatch({ type: "update", goal: newGoal });
         navigate("/Goals-App/Goals-List");
     }

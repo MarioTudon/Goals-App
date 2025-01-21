@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import Button from "../shared/Button";
 import { useNavigate } from "react-router";
-import { Context } from "../../context/Context";
+import { GoalsContext } from "../../context/GoalsContext";
 import { createGoal } from "../../services/requests";
 
 const icons = [
@@ -68,7 +68,7 @@ function NewGoal() {
         id: 0
     })
     const navigate = useNavigate();
-    const [state, dispatch] = useContext(Context);
+    const [, dispatch] = useContext(GoalsContext);
 
     function handleChange(e, prop) {
         setForm(state => ({ ...state, [prop]: e.target.value }));
