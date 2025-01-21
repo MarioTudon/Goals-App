@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-function SideMenuButton({ children, text, sectionID, sendDataToSideMenu, url, onClick, ...props }) {
+function AsideButton({ children, text, sectionID, sendDataToSideMenu, url, onClick, ...props }) {
 
     return (
         <>
@@ -14,4 +14,4 @@ function SideMenuButton({ children, text, sectionID, sendDataToSideMenu, url, on
     );
 }
 
-export default SideMenuButton;
+export default AsideButton;

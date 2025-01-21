@@ -1,7 +1,7 @@
 import { useContext, useEffect } from 'react';
 import GoalsList from '../main/GoalsList'
 import NewGoal from '../main/NewGoal'
-import SideMenu from '../main/SideMenu'
+import Aside from '../main/Aside';
 import { Route, Routes } from 'react-router'
 import { requestGoals } from '../../services/requests';
 import { Context } from '../../context/Context';
@@ -22,7 +22,7 @@ function Main() {
     return (
         <>
             <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
-            <SideMenu isAuthenticated={false}/>
+            <Aside isAuthenticated={false}/>
                 <Routes>
                     {/*Rutas publicas*/}
                     <Route path='/Login' element={<Login />} />
