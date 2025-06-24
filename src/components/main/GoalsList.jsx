@@ -6,7 +6,7 @@ import { Context } from '../../context/Context';
 
 function GoalsList() {
     const navigate = useNavigate();
-    const [state, dispatch] = useContext(Context);
+    const [state] = useContext(Context);
 
     return (
         <>

@@ -5,5 +5,8 @@ import { createHtmlPlugin } from 'vite-plugin-html'
 // https://vitejs.dev/config/
 export default defineConfig({
   base:'/Goals-App/',
-  plugins: [react(),createHtmlPlugin({minify:true})]
+  plugins: [
+    react(),
+    createHtmlPlugin({minify:true})
+  ]
 })

@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router'
 function Main() {
     return (
         <>
-            <main className='h-full relative bg-linear-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
+            <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>
                 <SideMenu />
                 <Routes>
                     <Route path="/*" element={<GoalsList />} />
