@@ -162,7 +162,7 @@ function EditGoal() {
                         />
                         <Button
                             label={"Delete"}
-                            styles={"bg-gray-200 text-red-700 outline outline-1 outline-red-700"}
+                            styles={"bg-gray-200 text-red-700 outline-solid outline-1 outline-red-700"}
                             onClick={deleteGoal}
                         />
                         <Button
