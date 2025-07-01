@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 function Header() {
 
     function openLink() {
-        window.open("/Goals-App", "_self")
+        window.open("/", "_self")
     }
 
     return (
