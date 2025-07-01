@@ -158,7 +158,7 @@ function EditGoal() {
                         <Button
                             label={"Cancel"}
                             styles={"bg-gray-200"}
-                            onClick={() => navigate('/Goals-App/Goals-List')}
+                            onClick={() => navigate('/Goals-List')}
                         />
                         <Button
                             label={"Delete"}
