@@ -93,18 +93,18 @@ function EditGoal() {
 
     function resetCount() {
         dispatch({ type: 'resetCount', id: state.objects[id].id });
-        navigate("/Goals-App/Goals-List");
+        navigate("/Goals-List");
     }
 
     function updateGoal() {
         if (!verifyAndFormatForm()) return;
         dispatch({ type: "update", goal: form });
-        navigate("/Goals-App/Goals-List");
+        navigate(/Goals-List");
     }
 
     function deleteGoal() {
         dispatch({ type: "delete", id: state.objects[id].id });
-        navigate("/Goals-App/Goals-List");
+        navigate("/Goals-List");
     }
 
     return state.order.includes(Number(id)) && (
