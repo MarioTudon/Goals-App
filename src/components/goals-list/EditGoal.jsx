@@ -99,7 +99,7 @@ function EditGoal() {
     function updateGoal() {
         if (!verifyAndFormatForm()) return;
         dispatch({ type: "update", goal: form });
-        navigate(/Goals-List");
+        navigate("/Goals-List");
     }
 
     function deleteGoal() {
