@@ -10,7 +10,7 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <ContextProvider>
         <Routes>
-          <Route path="/Goals-App/*" element={<App />} />
+          <Route path="/*" element={<App />} />
         </Routes>
       </ContextProvider>
     </BrowserRouter>
