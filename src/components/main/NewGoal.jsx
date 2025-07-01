@@ -90,7 +90,7 @@ function NewGoal() {
 
     function addGoal() {
         if (!verifyAndFormatForm()) return;
-        navigate("/Goals-App/Goals-List");
+        navigate("/Goals-List");
         dispatch({ type: 'create', goal: form });
     }
 
