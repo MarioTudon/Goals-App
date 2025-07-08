@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 
-function SideMenuButton({ children, text, sectionID, sendDataToSideMenu, url, onClick, ...props }) {
+const SideMenuButton = ({ children, text, sendDataToSideMenu, url, onClick, ...props }) => {
 
     return (
         <>

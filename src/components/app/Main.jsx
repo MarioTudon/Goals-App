@@ -3,7 +3,7 @@ import NewGoal from '../main/NewGoal'
 import SideMenu from '../main/SideMenu'
 import { Route, Routes } from 'react-router'
 
-function Main() {
+const Main = () => {
     return (
         <>
             <main className='h-full relative bg-gradient-to-t from-gray-400 to-gray-100 overflow-y-auto lg:flex'>

@@ -56,7 +56,7 @@ const frequencyUnits = [
     "Year",
 ]
 
-function NewGoal() {
+const NewGoal = () => {
 
     const [form, setForm] = useState({
         goal: "",

@@ -2,7 +2,7 @@ import logoIcon from '../../assets/logo-icon.svg'
 import accountIcon from '../../assets/account-icon.svg'
 import { Link } from 'react-router'
 
-function Header() {
+const Header = () => {
 
     function openLink() {
         window.open("/", "_self")

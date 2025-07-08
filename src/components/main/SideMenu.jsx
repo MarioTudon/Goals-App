@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 import SideMenuButton from '../side-menu/SideMenuButton'
 
-function SideMenu() {
+const SideMenu = () => {
     const [arrowRotation, setArrowRotation] = useState("rotate-0");
     const [arrowDirection, setArrowDirection] = useState("rightBounce");
     const [asideWidth, setAsideWidth] = useState("w-0");
@@ -31,7 +31,6 @@ function SideMenu() {
             <aside className={`flex flex-col justify-start text-gray-700 bg-gray-100 h-full ${asideWidth} lg:w-60 lg:relative transition-all duration-slow shadow-md shadow-gray-400 absolute z-10`}>
                 <SideMenuButton
                     text={'Goals List'}
-                    sectionID={"goalsList"}
                     autoFocus
                     url='/Goals-List'
                     onClick={hideMenu}
@@ -46,7 +45,6 @@ function SideMenu() {
                 </SideMenuButton>
                 <SideMenuButton
                     text={'New Goal'}
-                    sectionID={"newGoal"}
                     url='/New-Goal'
                     onClick={hideMenu}
                 >
